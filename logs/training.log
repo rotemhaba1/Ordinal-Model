@@ -1,0 +1,27 @@
+2025-03-02 15:37:42,681 - INFO - Training started.
+2025-03-02 15:37:42,681 - INFO - experiment_type: mixed
+2025-03-02 15:37:42,681 - INFO - Model Hyperparameters: {'min_diff': 1.5, 'max_diff': 9, 'min_length': 1.5, 'max_length': 8, 'remove_level': ['Inhalation']}
+2025-03-02 15:37:42,681 - INFO - ID-1 --Algo Hyperparameters: {'downsampling': False, 'smote': True, 'class_weight': None, 'predict_model': 'XGBoost', 'WIGR_power': None, 'criterion': 'None'}
+2025-03-02 15:40:17,729 - INFO - Training started.
+2025-03-02 15:40:17,729 - INFO - experiment_type: mixed
+2025-03-02 15:40:17,729 - INFO - Model Hyperparameters: {'min_diff': 1.5, 'max_diff': 9, 'min_length': 1.5, 'max_length': 8, 'remove_level': ['Inhalation']}
+2025-03-02 15:40:17,741 - INFO - ID-1 --Algo Hyperparameters: {'downsampling': False, 'smote': True, 'class_weight': None, 'predict_model': 'XGBoost', 'WIGR_power': None, 'criterion': 'None'}
+2025-03-02 15:41:37,184 - INFO - Training started.
+2025-03-02 15:41:37,184 - INFO - experiment_type: mixed
+2025-03-02 15:41:37,184 - INFO - Model Hyperparameters: {'min_diff': 1.5, 'max_diff': 9, 'min_length': 1.5, 'max_length': 8, 'remove_level': ['Inhalation']}
+2025-03-02 15:41:37,184 - INFO - ID-1 --Algo Hyperparameters: {'downsampling': False, 'smote': True, 'class_weight': None, 'predict_model': 'XGBoost', 'WIGR_power': None, 'criterion': 'None'}
+2025-03-02 15:51:36,697 - INFO - Training started.
+2025-03-02 15:51:36,697 - INFO - experiment_type: mixed
+2025-03-02 15:51:36,697 - INFO - Model Hyperparameters: {'min_diff': 1.5, 'max_diff': 9, 'min_length': 1.5, 'max_length': 8, 'remove_level': ['Inhalation']}
+2025-03-02 15:51:36,700 - INFO - ID-1 --Algo Hyperparameters: {'downsampling': False, 'smote': True, 'class_weight': None, 'predict_model': 'XGBoost', 'WIGR_power': None, 'criterion': 'None'}
+2025-03-02 15:54:45,393 - INFO - Training started.
+2025-03-02 15:54:45,393 - INFO - experiment_type: mixed
+2025-03-02 15:54:45,393 - INFO - Model Hyperparameters: {'min_diff': 1.5, 'max_diff': 9, 'min_length': 1.5, 'max_length': 8, 'remove_level': ['Inhalation']}
+2025-03-02 15:54:45,395 - INFO - ID-1 --Algo Hyperparameters: {'downsampling': False, 'smote': True, 'class_weight': None, 'predict_model': 'XGBoost', 'WIGR_power': None, 'criterion': 'None'}
+2025-03-02 15:55:55,557 - INFO - Training started.
+2025-03-02 15:55:55,558 - INFO - experiment_type: mixed
+2025-03-02 15:55:55,558 - INFO - Model Hyperparameters: {'min_diff': 1.5, 'max_diff': 9, 'min_length': 1.5, 'max_length': 8, 'remove_level': ['Inhalation']}
+2025-03-02 15:55:55,560 - INFO - ID-1 --Algo Hyperparameters: {'downsampling': False, 'smote': True, 'class_weight': None, 'predict_model': 'XGBoost', 'WIGR_power': None, 'criterion': 'None'}
+2025-03-02 15:57:11,770 - INFO - Training started.
+2025-03-02 15:57:11,770 - INFO - experiment_type: mixed
+2025-03-02 15:57:11,770 - INFO - Model Hyperparameters: {'min_diff': 1.5, 'max_diff': 9, 'min_length': 1.5, 'max_length': 8, 'remove_level': ['Inhalation']}

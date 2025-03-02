@@ -1,0 +1,9 @@
+2025-03-02 16:15:54,119 - INFO - Training started.
+2025-03-02 16:15:54,119 - INFO - experiment_type: mixed
+2025-03-02 16:15:54,119 - INFO - Model Hyperparameters: {'min_diff': 1.5, 'max_diff': 9, 'min_length': 1.5, 'max_length': 8, 'remove_level': ['Inhalation']}
+2025-03-02 16:15:54,124 - INFO - ID-1 --Algo Hyperparameters: {'downsampling': False, 'smote': True, 'class_weight': None, 'predict_model': 'XGBoost', 'WIGR_power': None, 'criterion': 'None'}
+2025-03-02 16:16:50,102 - INFO - Training started.
+2025-03-02 16:16:50,102 - INFO - experiment_type: mixed
+2025-03-02 16:16:50,102 - INFO - Model Hyperparameters: {'min_diff': 1.5, 'max_diff': 9, 'min_length': 1.5, 'max_length': 8, 'remove_level': ['Inhalation']}
+2025-03-02 16:16:50,106 - INFO - ID-1 --Algo Hyperparameters: {'downsampling': False, 'smote': True, 'class_weight': None, 'predict_model': 'XGBoost', 'WIGR_power': None, 'criterion': 'None'}
+2025-03-02 16:16:52,782 - INFO - Start : cv_1/cv_5
