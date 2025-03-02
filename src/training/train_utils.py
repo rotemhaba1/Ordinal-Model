@@ -39,7 +39,7 @@ def load_data_experiment_mixed(params):
 
 
 
-def preprocess_data(X_train, Y_train, algorithm_params):
+def preprocess_data(X_train, Y_train, params):
     level_mapping = {
         'FEV1 [-10,inf)': 0,
         'FEV1 [-20,-10)': 1,
@@ -49,13 +49,13 @@ def preprocess_data(X_train, Y_train, algorithm_params):
     Y_train["level_int"] = Y_train["level"].map(level_mapping)
     X_train = X_train.drop(columns=["Patient_NO",'Respiratory cycle'])
 
-    if algorithm_params['downsampling']:
+    if params['downsampling']:
         rus = RandomUnderSampler(random_state=42)
         X_train, Y_train_level = rus.fit_resample(X_train, Y_train["level_int"])
         Y_train = Y_train.loc[Y_train.index.isin(X_train.index)]
         Y_train["level_int"] = Y_train_level
 
-    if algorithm_params['smote']:
+    if params['smote']:
         smote = SMOTE(random_state=42)
         X_train, Y_train_level = smote.fit_resample(X_train, Y_train["level_int"])
         Y_train = pd.DataFrame({"level_int": Y_train_level})
@@ -64,20 +64,18 @@ def preprocess_data(X_train, Y_train, algorithm_params):
 
     return X_train, Y_train
 
-def get_index(params, algorithm_params, experiment, excel_path):
+def get_index(params, experiment, excel_path):
     os.makedirs(os.path.dirname(excel_path), exist_ok=True)
 
     params_str = str(params)
-    algorithm_params_str = str(algorithm_params)
 
     if os.path.exists(excel_path):
         df = pd.read_excel(excel_path)
     else:
-        df = pd.DataFrame(columns=["index", "params", "algorithm_params", "experiment", "timestamp"])
+        df = pd.DataFrame(columns=["index", "params", "experiment", "timestamp"])
 
     existing_run = df[
         (df["params"] == params_str) &
-        (df["algorithm_params"] == algorithm_params_str) &
         (df["experiment"] == experiment)
         ]
 
@@ -89,18 +87,21 @@ def get_index(params, algorithm_params, experiment, excel_path):
     return new_index
 
 
-def save_index(new_index,params, algorithm_params, experiment, experiment_tracking_path):
+def save_index(new_index, params, experiment, experiment_tracking_path):
     params_str = str(params)
-    algorithm_params_str = str(algorithm_params)
+
 
     new_run = pd.DataFrame([{
         "index": new_index,
         "params": params_str,
-        "algorithm_params": algorithm_params_str,
         "experiment": experiment,
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }])
-    df = pd.read_excel(experiment_tracking_path)
+
+    if os.path.exists(experiment_tracking_path):
+        df = pd.read_excel(experiment_tracking_path)
+    else:
+        df = pd.DataFrame(columns=["index", "params", "experiment", "timestamp"])
 
     df = pd.concat([df, new_run], ignore_index=True)
     df.to_excel(experiment_tracking_path, index=False)

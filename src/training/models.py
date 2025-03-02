@@ -1,4 +1,4 @@
-def predict_models(algorithm_params):
+def predict_models(params):
     """
     models option
         DecisionTrees
@@ -14,11 +14,11 @@ def predict_models(algorithm_params):
     except:
         pass
 
-    predict_model=algorithm_params['predict_model']
-    alpha=1
-    WIGR_power = algorithm_params['WIGR_power']
-    criterion = algorithm_params['criterion']
-    class_weight = algorithm_params['class_weight']
+    predict_model = params.get('model', None)
+    alpha = 1
+    WIGR_power = params['combo'].get('WIGR_power', None)
+    criterion = params['combo'].get('criterion', None)
+    class_weight = params['combo'].get('class_weight', None)
 
 
     if predict_model == 'DecisionTrees':
@@ -52,7 +52,8 @@ def predict_models(algorithm_params):
                 max_depth = 5, alpha = 10, n_estimators = 10)
     elif predict_model == 'XGBoost':
         from xgboost import XGBClassifier
-        clf_model = XGBClassifier()
+        #clf_model = XGBClassifier()
+        clf_model = XGBClassifier(tree_method="hist", device="cuda")
     elif predict_model == 'KMeans':
         from sklearn.cluster import KMeans
         clf_model = KMeans( random_state=0)
@@ -130,3 +131,20 @@ def predict_models_by_sequence(predict_model_sequence):
     elif predict_model_sequence == 'AdaBoost':
         model = predict_models(predict_model=predict_model_sequence,)
     return model
+
+def get_model_param_grid():
+    param_grids = {
+        "XGBoost": {
+        },
+        "RandomForest": {
+        },
+        "DecisionTrees": {
+            "class_weight": [None, 'balanced'],
+        },
+        "AdaBoost": {
+        },
+        "catboost": {
+        }
+    }
+
+    return param_grids
