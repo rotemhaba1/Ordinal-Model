@@ -7,17 +7,32 @@ from datetime import datetime
 
 
 def load_data_experiment_mixed(params):
-    Y = pd.read_parquet(f"{PROCESSED_DATA_DIR}/target_min_diff{params['min_diff']}max_diff{params['max_diff']}"
-    f"min_length{params['min_length']}max_length{params['max_length']}"
-    f"remove_level_{params['remove_level'][0]}.parquet")
+    # Define file paths
+    target_path = os.path.join(
+        PROCESSED_DATA_DIR,
+        f"target_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+        f"min_length{params['min_length']}max_length{params['max_length']}"
+        f"remove_level_{params['remove_level'][0]}.parquet"
+    )
 
-    X = pd.read_parquet(f"{PROCESSED_DATA_DIR}/EEG_df_min_diff{params['min_diff']}max_diff{params['max_diff']}"
-    f"min_length{params['min_length']}max_length{params['max_length']}"
-    f"remove_level_{params['remove_level'][0]}.parquet")
+    eeg_df_path = os.path.join(
+        PROCESSED_DATA_DIR,
+        f"EEG_df_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+        f"min_length{params['min_length']}max_length{params['max_length']}"
+        f"remove_level_{params['remove_level'][0]}.parquet"
+    )
 
-    split_train_test = pd.read_parquet(f"{SPLITS_DATA_DIR}/split_train_test_min_diff{params['min_diff']}max_diff{params['max_diff']}"
-    f"min_length{params['min_length']}max_length{params['max_length']}"
-    f"remove_level_{params['remove_level'][0]}.parquet")
+    split_train_test_path = os.path.join(
+        SPLITS_DATA_DIR,
+        f"split_train_test_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+        f"min_length{params['min_length']}max_length{params['max_length']}"
+        f"remove_level_{params['remove_level'][0]}.parquet"
+    )
+
+    # Read parquet files
+    Y = pd.read_parquet(target_path)
+    X = pd.read_parquet(eeg_df_path)
+    split_train_test = pd.read_parquet(split_train_test_path)
 
 
     return X,Y,split_train_test
