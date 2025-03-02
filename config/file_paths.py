@@ -22,9 +22,9 @@ PREDICT_TRACKING_MIXED_PATH = os.path.join(RESULTS_DIR, "mixed", "predictions")
 PREDICT_TRACKING_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR, "probabilistic", "predictions")
 
 # Paths for experiment tracking
-EXPERIMENT_TRACKING_INDEPENDENT_PATH = os.path.join(RESULTS_DIR,'independent', "experiment_tracking_independent.parquet")
-EXPERIMENT_TRACKING_MIXED_PATH = os.path.join(RESULTS_DIR,'mixed', "experiment_tracking_mixed.parquet")
-EXPERIMENT_TRACKING_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR,'probabilistic', "experiment_tracking_probabilistic.parquet")
+EXPERIMENT_TRACKING_INDEPENDENT_PATH = os.path.join(RESULTS_DIR,'independent', "experiment_tracking_independent.xlsx")
+EXPERIMENT_TRACKING_MIXED_PATH = os.path.join(RESULTS_DIR,'mixed', "experiment_tracking_mixed.xlsx")
+EXPERIMENT_TRACKING_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR,'probabilistic', "experiment_tracking_probabilistic.xlsx")
 
 
 
