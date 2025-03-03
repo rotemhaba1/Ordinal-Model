@@ -4,10 +4,9 @@ from src.utils.setup_logger import preprocessing_logger
 from data_split import *
 
 def patient_info():
-    BASE_DIR = os.getcwd()
     summary_data = []
 
-    for i in range(1, 51):
+    for i in range(1, 52):
         path =get_patient_raw_path(i)
         file_path = os.path.join(path, "challenge_test_report.xlsx")
 
@@ -202,7 +201,7 @@ min_length_Option=[1.5]
 max_length_Option=[8]
 remove_level_Option=[['Inhalation']]
 #save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option,type=['independent'], title="")
-#save_data(Patients, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option, remove_level_Option,type=['everyone'], title="")
+save_data(Patients, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option, remove_level_Option,type=['everyone'], title="")
 
 split_train_test(type=['everyone'])
 split_train_test(Patients_level_3,type=['independent'])

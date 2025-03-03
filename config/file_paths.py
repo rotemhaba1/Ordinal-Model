@@ -49,7 +49,7 @@ def get_predict_tracking_path(experiment_type):
         return PREDICT_TRACKING_PROBABILISTIC_PATH
 
 def get_patient_raw_path(patient):
-    return os.path.join(RAW_DATA_DIR, patient)
+    return os.path.join(RAW_DATA_DIR, 'P'+str(patient))
 
 # Example usage
 if __name__ == "__main__":
