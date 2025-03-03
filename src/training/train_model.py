@@ -77,8 +77,6 @@ if __name__ == "__main__":
     }
 
 
-
-
     experiment_type="mixed"
     param_combinations = get_param_combinations()
     training_logger.info("Training started.")

@@ -2,7 +2,7 @@ import os
 
 # Base directory of the project
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR='/home/dsi/rotem.haba/Ordinal-Model'
 # Paths to raw and processed data
 RAW_DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
 PROCESSED_DATA_DIR = os.path.join(BASE_DIR, "data", "processed")
@@ -26,6 +26,10 @@ EXPERIMENT_TRACKING_INDEPENDENT_PATH = os.path.join(RESULTS_DIR,'independent', "
 EXPERIMENT_TRACKING_MIXED_PATH = os.path.join(RESULTS_DIR,'mixed', "experiment_tracking_mixed.xlsx")
 EXPERIMENT_TRACKING_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR,'probabilistic', "experiment_tracking_probabilistic.xlsx")
 
+# Paths for experiment summary
+EXPERIMENT_SUMMARY_INDEPENDENT_PATH = os.path.join(RESULTS_DIR,'independent', "experiment_summary_independent.xlsx")
+EXPERIMENT_SUMMARY_MIXED_PATH = os.path.join(RESULTS_DIR,'mixed', "experiment_summary_mixed.xlsx")
+EXPERIMENT_SUMMARY_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR,'probabilistic', "experiment_summary_probabilistic.xlsx")
 
 
 def get_experiment_tracking_path(experiment_type):
