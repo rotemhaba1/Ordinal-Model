@@ -22,17 +22,14 @@ def find_experiments_to_update(tracking_path, summary_path):
     if missing_cols:
         summary_df = summary_df.reindex(columns=summary_df.columns.tolist() + missing_cols, fill_value=None)
 
-    missing_experiments = tracking_df[~tracking_df["experiment_id"].astype(str).isin(summary_df["experiment_id"].astype(str))]
+    missing_experiments = tracking_df[~tracking_df["index"].astype(str).isin(summary_df["index"].astype(str))]
+    summary_df=summary_df[summary_df.columns.intersection(tracking_df.columns)]
 
-    merged_df = tracking_df.merge(summary_df, on="experiment_id", how="inner", suffixes=("_tracking", "_summary"))
-
-    columns_to_check = [col for col in tracking_df.columns if col != "experiment_id"]
-
-    different_experiments = merged_df[
-        merged_df.apply(lambda row: any(row[f"{col}_tracking"] != row[f"{col}_summary"] for col in columns_to_check), axis=1)
-    ][tracking_df.columns]
-
-    experiments_to_update = pd.concat([missing_experiments, different_experiments]).drop_duplicates()
+    merged_df = summary_df.merge(tracking_df[['index', 'timestamp']], on='index', suffixes=('_summary', '_tracking'))
+    diff_date_df = merged_df[merged_df['timestamp_summary'] != merged_df['timestamp_tracking']]
+    diff_date_df = diff_date_df.rename(columns={'timestamp_summary': 'timestamp'})
+    diff_date_df = diff_date_df[summary_df.columns]
+    experiments_to_update=pd.concat([missing_experiments,diff_date_df])
 
     evaluation_logger.info(f"Experiments to update: {len(experiments_to_update)}")
 

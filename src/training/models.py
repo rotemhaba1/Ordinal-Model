@@ -10,6 +10,7 @@ def predict_models(params):
     WIGR_power = params['combo'].get('WIGR_power', None)
     criterion = params['combo'].get('criterion', None)
     class_weight = params['combo'].get('class_weight', None)
+    algorithm = params['combo'].get('algorithm', None)
 
 
     if predict_model == 'DecisionTrees':
@@ -23,50 +24,35 @@ def predict_models(params):
         clf_model = AdaBoostClassifier()
     elif predict_model == 'catboost':
         from catboost import CatBoostClassifier
-        clf_model = CatBoostClassifier(task_type="GPU",silent=True)
+        clf_model = CatBoostClassifier(silent=True)
     elif predict_model == 'XGBoost':
         from xgboost import XGBClassifier
-        #clf_model = XGBClassifier()
-        clf_model = XGBClassifier(tree_method="hist", device="cuda")
+        clf_model = XGBClassifier()
+        #clf_model = XGBClassifier(tree_method="hist", device="cuda")
     elif predict_model == 'DecisionTrees_Ordinal':
-        if criterion == 'entropy':
-            clf_model = DecisionTreeClassifier(criterion=criterion,class_weight=class_weight)
-        else:
-            clf_model = DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power,class_weight=class_weight)
+        clf_model = DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, class_weight=class_weight)
     elif predict_model == 'RandomForest_Ordinal':
-        if criterion == 'entropy':
-            clf_model = RandomForestClassifier(criterion=criterion,class_weight=class_weight)
-        else:
-            clf_model = RandomForestClassifier(criterion=criterion, WIGR_power=WIGR_power,class_weight=class_weight)
-    elif predict_model == 'AdaBoost_SAMME_R_Ordinal':
-        if criterion == 'entropy':
-            clf_model = AdaBoostClassifier(DecisionTreeClassifier(criterion=criterion, max_depth=1,class_weight=class_weight))
-        else:
-            clf_model = AdaBoostClassifier(
-                DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, max_depth=1,class_weight=class_weight))
-    elif predict_model == 'AdaBoost_SAMME_Ordinal':
-        if criterion == 'entropy':
-            clf_model = AdaBoostClassifier(DecisionTreeClassifier(criterion=criterion, max_depth=1,class_weight=class_weight), algorithm='SAMME')
-        else:
-            clf_model = AdaBoostClassifier(
-                DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, max_depth=1,class_weight=class_weight),
-                algorithm='SAMME')
+        clf_model = RandomForestClassifier(criterion=criterion, WIGR_power=WIGR_power, class_weight=class_weight)
     elif predict_model == 'AdaBoost_Ordinal':
-        if criterion == 'entropy':
-            clf_model = AdaBoostClassifier(DecisionTreeClassifier(criterion=criterion, random_state=1, max_depth=1,class_weight=class_weight),
-                                     Ordinal_problem=1)
-        else:
+        if algorithm=='':
             clf_model = AdaBoostClassifier(
-                DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, max_depth=1,class_weight=class_weight),
-                Ordinal_problem=1)
-    elif predict_model == 'AdaBoost_half_Ordinal':
-        if criterion == 'entropy':
-            clf_model = AdaBoostClassifier(DecisionTreeClassifier(criterion=criterion, random_state=1, max_depth=1,class_weight=class_weight),
-                                     Ordinal_problem=2)
-        else:
+                DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, max_depth=1,
+                                       class_weight=class_weight), Ordinal_problem=1)
+        elif algorithm == 'SAMME':
             clf_model = AdaBoostClassifier(
-                DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, max_depth=1,class_weight=class_weight),
-                Ordinal_problem=2)
+                DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, max_depth=1,
+                                       class_weight=class_weight),algorithm='SAMME')
+        elif algorithm=='SAMME_R':
+            clf_model = AdaBoostClassifier(
+                DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, max_depth=1,
+                                       class_weight=class_weight))
+        elif algorithm == 'half':
+            clf_model = AdaBoostClassifier(
+                DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, max_depth=1,
+                                       class_weight=class_weight),Ordinal_problem=2)
+
+
+
     return clf_model
 
 def predict_models_by_sequence(predict_model_sequence):
