@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 from config.file_paths import *
-from imblearn.under_sampling import RandomUnderSampler
-from imblearn.over_sampling import SMOTE
+from sklearn.utils import resample
+
 from datetime import datetime
 
 
@@ -50,14 +50,27 @@ def preprocess_data(X_train, Y_train, params):
     X_train = X_train.drop(columns=["Patient_NO",'Respiratory cycle'])
 
     if params['downsampling']:
+        """
+        from imblearn.under_sampling import RandomUnderSampler
         rus = RandomUnderSampler(random_state=42)
         X_train, Y_train_level = rus.fit_resample(X_train, Y_train["level_int"])
         Y_train = Y_train.loc[Y_train.index.isin(X_train.index)]
         Y_train["level_int"] = Y_train_level
+        """
+
 
     if params['smote']:
+        """
+        from imblearn.over_sampling import SMOTE
         smote = SMOTE(random_state=42)
         X_train, Y_train_level = smote.fit_resample(X_train, Y_train["level_int"])
+        Y_train = pd.DataFrame({"level_int": Y_train_level})
+        """
+        X_train, Y_train_level = resample(X_train, Y_train["level_int"],
+                                                            replace=True,
+                                                            n_samples=len(X_train),
+                                                            random_state=42)
+
         Y_train = pd.DataFrame({"level_int": Y_train_level})
 
 

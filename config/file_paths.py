@@ -2,7 +2,7 @@ import os
 
 # Base directory of the project
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR='/home/dsi/rotem.haba/Ordinal-Model'
+BASE_DIR=r'C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model'
 # Paths to raw and processed data
 RAW_DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
 PROCESSED_DATA_DIR = os.path.join(BASE_DIR, "data", "processed")
