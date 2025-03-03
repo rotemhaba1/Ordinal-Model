@@ -10,6 +10,10 @@ import warnings
 warnings.simplefilter("ignore", category=FutureWarning)
 
 
+
+#from sklearn.ensemble import RandomForestClassifier
+#model = RandomForestClassifier(criterion='WIGR_mode', WIGR_power=1)
+
 def get_param_combinations():
     all_combinations = {}
 

@@ -1,18 +1,9 @@
 def predict_models(params):
-    """
-    models option
-        DecisionTrees
-        RandomForest
-        LogisticRegression
-        GaussianNB
-    """
+
     from sklearn.tree import DecisionTreeClassifier
     from sklearn.ensemble import RandomForestClassifier
     from sklearn.ensemble import AdaBoostClassifier
-    try:
-        from catboost import CatBoostClassifier
-    except:
-        pass
+
 
     predict_model = params.get('model', None)
     alpha = 1
@@ -24,48 +15,19 @@ def predict_models(params):
     if predict_model == 'DecisionTrees':
         from sklearn import tree
         clf_model = tree.DecisionTreeClassifier(class_weight=class_weight)
-    elif predict_model == 'SVC':
-        from sklearn import svm
-        clf_model = svm.SVC(class_weight=class_weight)
     elif predict_model == 'RandomForest':
+        from sklearn.ensemble import RandomForestClassifier
         clf_model = RandomForestClassifier()
-    elif predict_model == 'LogisticRegression':
-        from sklearn.linear_model import LogisticRegression
-        clf_model = LogisticRegression(random_state=0,solver = 'lbfgs',max_iter=100 )
-    elif predict_model == 'GaussianNB':
-        from sklearn.naive_bayes import GaussianNB
-        clf_model = GaussianNB()
     elif predict_model == 'AdaBoost':
+        from sklearn.ensemble import AdaBoostClassifier
         clf_model = AdaBoostClassifier()
     elif predict_model == 'catboost':
-        clf_model = CatBoostClassifier(silent=True)
-    elif predict_model == 'catboost_ordinal':
-        clf_model = CatBoostClassifier(silent=True,
-                                    eval_metric='AUC',
-                                    custom_metric='AUC:type=Mu;misclass_cost_matrix=0/0.5/2/1/0/1/0/0.5/0',
-                                    loss_function='MultiClass',
-                                    train_dir='model_dir',
-                                    random_seed=42)
-    elif predict_model == 'XGBRegressor':
-        import xgboost as xgb
-        clf_model = xgb.XGBRegressor(objective ='reg:linear', colsample_bytree = 0.3, learning_rate = 0.1,
-                max_depth = 5, alpha = 10, n_estimators = 10)
+        from catboost import CatBoostClassifier
+        clf_model = CatBoostClassifier(task_type="GPU",silent=True)
     elif predict_model == 'XGBoost':
         from xgboost import XGBClassifier
         #clf_model = XGBClassifier()
         clf_model = XGBClassifier(tree_method="hist", device="cuda")
-    elif predict_model == 'KMeans':
-        from sklearn.cluster import KMeans
-        clf_model = KMeans( random_state=0)
-    elif predict_model == 'LogisticIT_ordinal':
-        from mord import LogisticIT
-        clf_model = LogisticIT(alpha=alpha)
-    elif predict_model == 'LogisticAT_ordinal':
-        from mord import LogisticAT
-        clf_model = LogisticAT(alpha=alpha)
-    elif predict_model == 'LogisticSE_ordinal':
-        from mord import LogisticSE
-        clf_model = LogisticSE(alpha=alpha)
     elif predict_model == 'DecisionTrees_Ordinal':
         if criterion == 'entropy':
             clf_model = DecisionTreeClassifier(criterion=criterion,class_weight=class_weight)
