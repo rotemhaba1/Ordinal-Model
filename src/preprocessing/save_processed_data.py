@@ -1,7 +1,7 @@
-from prepare_data import read_data, filter_data,get_data,transform_data
+from src.preprocessing.prepare_data import read_data, filter_data,get_data,transform_data
 from config.file_paths import *
 from src.utils.setup_logger import preprocessing_logger
-from data_split import *
+from src.preprocessing.data_split import *
 
 def patient_info():
     summary_data = []
@@ -192,17 +192,19 @@ min_length_Option=[1.5]
 max_length_Option=[8,15]
 """
 
+if __name__ == "__main__":
 
-Patients,Patients_level_3=patient_info()
 
-min_diff_Option=[1.5]
-max_diff_Option=[9]
-min_length_Option=[1.5]
-max_length_Option=[8]
-remove_level_Option=[['Inhalation']]
-#save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option,type=['independent'], title="")
-save_data(Patients, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option, remove_level_Option,type=['everyone'], title="")
+    Patients,Patients_level_3=patient_info()
 
-split_train_test(type=['everyone'])
-split_train_test(Patients_level_3,type=['independent'])
+    min_diff_Option=[1.5]
+    max_diff_Option=[9]
+    min_length_Option=[1.5]
+    max_length_Option=[8]
+    remove_level_Option=[['Inhalation']]
+    save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option,type=['independent'], title="")
+    save_data(Patients, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option, remove_level_Option,type=['everyone'], title="")
+
+    split_train_test(type=['everyone'])
+    split_train_test(Patients_level_3,type=['independent'])
 

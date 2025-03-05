@@ -17,7 +17,7 @@ RESULTS_DIR = os.path.join(BASE_DIR, "results")
 
 
 # EXPERIMENT_TRACKING
-PREDICT_INDEPENDENT_PATH = os.path.join(RESULTS_DIR, "independent", "predictions")
+PREDICT_TRACKING_INDEPENDENT_PATH = os.path.join(RESULTS_DIR, "independent", "predictions")
 PREDICT_TRACKING_MIXED_PATH = os.path.join(RESULTS_DIR, "mixed", "predictions")
 PREDICT_TRACKING_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR, "probabilistic", "predictions")
 
@@ -42,7 +42,7 @@ def get_experiment_tracking_path(experiment_type):
 
 def get_predict_tracking_path(experiment_type):
     if experiment_type == "independent":
-        return PREDICT_INDEPENDENT_PATH
+        return PREDICT_TRACKING_INDEPENDENT_PATH
     elif experiment_type == "mixed":
         return PREDICT_TRACKING_MIXED_PATH
     elif experiment_type == "probabilistic":

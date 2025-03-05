@@ -37,7 +37,30 @@ def load_data_experiment_mixed(params):
 
     return X,Y,split_train_test
 
+def load_data_experiment_independent(p_id):
+    # Define file paths
+    target_path = os.path.join(
+        PROCESSED_DATA_DIR,
+        f"Respiratory_cycle_df_P_{p_id}.parquet"
+    )
 
+    eeg_df_path = os.path.join(
+        PROCESSED_DATA_DIR,
+        f"fft_data_model_STFT_P_{p_id}.parquet"
+    )
+
+    split_train_test_path = os.path.join(
+        SPLITS_DATA_DIR,
+        f"split_train_test_P_{p_id}.parquet"
+    )
+
+    # Read parquet files
+    Y = pd.read_parquet(target_path)
+    X = pd.read_parquet(eeg_df_path)
+    split_train_test = pd.read_parquet(split_train_test_path)
+
+
+    return X,Y,split_train_test
 
 def preprocess_data(X_train, Y_train, params):
     level_mapping = {
@@ -47,7 +70,7 @@ def preprocess_data(X_train, Y_train, params):
     }
 
     Y_train["level_int"] = Y_train["level"].map(level_mapping)
-    X_train = X_train.drop(columns=["Patient_NO",'Respiratory cycle'])
+    X_train = X_train.drop(columns=[col for col in ["Patient_NO", 'Respiratory cycle'] if col in X_train.columns])
 
     if params['downsampling']:
         """
@@ -117,4 +140,7 @@ def save_index(new_index, params, experiment, experiment_tracking_path):
         df = pd.DataFrame(columns=["index", "params", "experiment", "timestamp"])
 
     df = pd.concat([df, new_run], ignore_index=True)
+    df = df.sort_values(by='timestamp', ascending=False)
+    df = df.drop_duplicates(subset='index', keep='first')
+    df = df.reset_index(drop=True)
     df.to_excel(experiment_tracking_path, index=False)
