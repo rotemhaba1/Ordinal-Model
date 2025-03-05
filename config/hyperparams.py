@@ -24,4 +24,13 @@ param_grids = {
 }
 
 
-# WIGR_max
+param_ensemble={
+'1':{'model':"RandomForest_Ordinal",'combo':{'WIGR_power':0.2,'criterion':'WIGR_EV'}},
+'2':{'model':"RandomForest_Ordinal",'combo':{'WIGR_power':0.2,'criterion':'WIGR_EV'}},
+'3':{'model':"XGBoost",'combo':{}},
+'4':{'model':"RandomForest",'combo':{}},
+'5':{'model':"XGBoost",'combo':{}},
+'6':{'model':"catboost",'combo':{}},
+'7':{'model':"catboost",'combo':{}},
+}
+

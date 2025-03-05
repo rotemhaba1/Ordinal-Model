@@ -4,10 +4,33 @@ from src.utils.setup_logger import evaluation_logger
 from sklearn.metrics import roc_auc_score, mean_squared_error, accuracy_score, f1_score, recall_score
 import numpy as np
 import ast
+from datetime import datetime
 
-def find_experiments_to_update(tracking_path, summary_path):
+def filter_params(row, model_x, combo_x):
+    try:
+        params_dict = ast.literal_eval(row['params'])  # Convert string to dictionary
+        return params_dict.get('model') == model_x and params_dict.get('combo') == combo_x
+    except (ValueError, SyntaxError):
+        return False
+
+def add_ensemble(param_ensemble,tracking_df):
+    index_ensemble=[]
+    for i in param_ensemble:
+        filtered_rows = tracking_df[tracking_df.apply(lambda row: filter_params(row, param_ensemble[i]['model'], param_ensemble[i]['combo']), axis=1)]
+        if len(filtered_rows)==1:
+            index_ensemble.append(filtered_rows['index'].iloc[0])
+        else:
+            evaluation_logger.warning(f"Missing / duplicate index_ensemble for {param_ensemble[i]}")
+            return tracking_df
+
+    ensemble_row =  pd.DataFrame([{'index': 'ensemble', 'params': index_ensemble, 'experiment': 'mixed',
+                    'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")}])
+    return pd.concat([tracking_df, ensemble_row], ignore_index=True)
+
+def find_experiments_to_update(tracking_path, summary_path,param_ensemble):
     if os.path.exists(tracking_path):
         tracking_df = pd.read_excel(tracking_path)
+        tracking_df=add_ensemble(param_ensemble, tracking_df)
     else:
         evaluation_logger.error(f"Tracking file not found: {tracking_path}")
         return pd.DataFrame(columns=["experiment_id"])
@@ -31,6 +54,7 @@ def find_experiments_to_update(tracking_path, summary_path):
     diff_date_df = diff_date_df[summary_df.columns]
     experiments_to_update=pd.concat([missing_experiments,diff_date_df])
 
+
     evaluation_logger.info(f"Experiments to update: {len(experiments_to_update)}")
 
     return experiments_to_update
@@ -44,6 +68,29 @@ def maps_levels(df):
     df["level_int"] = df["level"].map(level_mapping)
     return df
 
+def predict_ensemble(experiment_params,predict_dir):
+    df_prob_1=pd.DataFrame()
+    df_prob_2 = pd.DataFrame()
+    df_prob_3 = pd.DataFrame()
+
+    for run_number, ex_id in enumerate(experiment_params, start=1):
+        prediction_file = os.path.join(predict_dir, f"cv_probabilities_{ex_id}.parquet")
+        df = pd.read_parquet(prediction_file)
+        df_prob_1[run_number] = df['prob_class_1']
+        df_prob_2[run_number] = df['prob_class_2']
+        df_prob_3[run_number] = df['prob_class_3']
+
+    df_prob_1['avg_all_columns'] = df_prob_1.mean(axis=1)
+    df_prob_2['avg_all_columns'] = df_prob_2.mean(axis=1)
+    df_prob_3['avg_all_columns'] = df_prob_3.mean(axis=1)
+    df['prob_class_1'] = df_prob_1['avg_all_columns']
+    df['prob_class_2'] = df_prob_2['avg_all_columns']
+    df['prob_class_3'] = df_prob_3['avg_all_columns']
+
+    return df
+
+
+
 def evaluate_experiments(experiments_to_update, predict_dir):
     results = []
 
@@ -51,12 +98,23 @@ def evaluate_experiments(experiments_to_update, predict_dir):
         experiment_id = experiment["index"]
         prediction_file = os.path.join(predict_dir, f"cv_probabilities_{experiment_id}.parquet")
 
-        if not os.path.exists(prediction_file):
+
+        if (not os.path.exists(prediction_file)) & (experiment_id!='ensemble'):
             evaluation_logger.warning(f"Prediction file missing: {prediction_file}")
             continue
 
         try:
-            df = pd.read_parquet(prediction_file)
+            if experiment_id!='ensemble':
+                df = pd.read_parquet(prediction_file)
+                model_name= ast.literal_eval(experiment["params"])['model']
+            else:
+                if isinstance(experiment['params'], str):
+                    experiment_params = ast.literal_eval(experiment['params'])
+                else:
+                    experiment_params = experiment['params']
+                df = predict_ensemble(experiment_params,predict_dir)
+                model_name=experiment_id
+
             maps_levels(df)
 
             metrics_scores = {
@@ -123,7 +181,7 @@ def evaluate_experiments(experiments_to_update, predict_dir):
             if auc_avg_scores:
                 results.append({
                     "index": experiment_id,
-                    "model": ast.literal_eval(experiment["params"])['model'],
+                    "model":model_name,
                     "auc_avg": np.mean(auc_avg_scores),
                     "auc_weighted_avg": np.mean(auc_weighted_scores),
                     "mse_avg": np.mean(mse_avg_scores),
