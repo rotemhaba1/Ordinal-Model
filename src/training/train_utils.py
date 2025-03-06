@@ -116,11 +116,11 @@ def get_index(params, experiment, excel_path):
         ]
 
     if not existing_run.empty:
-        return existing_run["index"].values[0]
+        return existing_run["index"].values[0],True
 
     new_index = df["index"].max() + 1 if not df.empty else 1
 
-    return new_index
+    return new_index,False
 
 
 def save_index(new_index, params, experiment, experiment_tracking_path):
