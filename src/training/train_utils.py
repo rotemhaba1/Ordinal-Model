@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from config.file_paths import *
-
+import  numpy as np
 
 from datetime import datetime
 
@@ -70,6 +70,10 @@ def preprocess_data(X_train, Y_train, params):
     }
 
     Y_train["level_int"] = Y_train["level"].map(level_mapping)
+    unique_classes = np.sort(Y_train["level_int"].unique())
+    class_mapping = {old_class: new_class for new_class, old_class in enumerate(unique_classes)}
+    Y_train["level_int"] = Y_train["level_int"].map(class_mapping)
+
     X_train = X_train.drop(columns=[col for col in ["Patient_NO", 'Respiratory cycle'] if col in X_train.columns])
 
     if params['downsampling']:

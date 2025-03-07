@@ -19,11 +19,12 @@ def predict_models(params):
         clf_model = AdaBoostClassifier()
     elif predict_model == 'catboost':
         from catboost import CatBoostClassifier
-        clf_model = CatBoostClassifier(silent=True)
+        #clf_model = CatBoostClassifier(silent=True)
+        clf_model = CatBoostClassifier(silent=True, task_type="CPU")
     elif predict_model == 'XGBoost':
         from xgboost import XGBClassifier
-        clf_model = XGBClassifier()
-        #clf_model = XGBClassifier(tree_method="hist", device="cuda")
+        #clf_model = XGBClassifier()
+        clf_model = XGBClassifier(tree_method="hist", device="cpu")
     elif predict_model == 'DecisionTrees_Ordinal':
         from sklearn.tree import DecisionTreeClassifier
         clf_model = DecisionTreeClassifier(criterion=criterion, WIGR_power=WIGR_power, class_weight=class_weight)

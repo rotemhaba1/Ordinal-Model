@@ -35,7 +35,7 @@ def train_experiment_mixed(params,experiment_id,path):
     X,Y,split_train_test = load_data_experiment_mixed(params)
     cv_probabilities = {}
     for cv_i in ['cv_1'  , 'cv_2',   'cv_3' ,  'cv_4',   'cv_5']:
-        #training_logger.info(f"Start : {cv_i}/cv_5")
+        training_logger.info(f"Start : {cv_i}/cv_5")
         train_indices = split_train_test[split_train_test[cv_i] == True].index
         test_indices = split_train_test[split_train_test[cv_i] == False].index
         X_train, X_test = X.loc[train_indices], X.loc[test_indices]
@@ -128,7 +128,9 @@ def run_experiment(experiment_type, params,Patients, Patients_level_3,param_comb
 def run_in_parallel():
     experiment_types = ['mixed', 'independent']
     retrain=False
-    Patients, Patients_level_3 = patient_info()
+    #Patients, Patients_level_3 = patient_info()
+    Patients= [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+    Patients_level_3=[1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
     param_combinations = get_param_combinations()
     with multiprocessing.Pool(processes=len(experiment_types)) as pool:
         pool.starmap(run_experiment, [(experiment_type, params,Patients, Patients_level_3,param_combinations,retrain) for experiment_type in experiment_types])
@@ -147,6 +149,6 @@ def run_in_sequence():
 
 
 if __name__ == "__main__":
-    # run_in_parallel()
+    #run_in_parallel()
     run_in_sequence()
 
