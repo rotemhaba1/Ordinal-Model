@@ -12,27 +12,24 @@ param_grids = {
         'criterion':['WIGR_EV','WIGR_mode','WIGR_min','WIGR_EV_fix','WIGR_max'],
         "class_weight": [ 'balanced',None]},
 
-
-
     "DecisionTrees": {
         "class_weight": [ 'balanced',None], },
 
     "AdaBoost": {},
 
-
-
-    "AdaBoost_Ordinal": {
-        'WIGR_power': [0.2,1],
-        'criterion': ['WIGR_EV', 'WIGR_mode', 'WIGR_min', 'WIGR_EV_fix','WIGR_max'],
-        'algorithm': ['', 'SAMME_R', 'half', 'SAMME'],
-        "class_weight": [ 'balanced',None]},
-
     "catboost": {},
 
     "XGBoost": {},
 
+    "AdaBoost_Ordinal": {
+        'WIGR_power': [0.2],
+        'criterion': ['WIGR_EV', 'WIGR_mode', 'WIGR_min', 'WIGR_EV_fix','WIGR_max'],
+        'algorithm': ['', 'SAMME_R', 'half', 'SAMME'],
+        "class_weight": [ 'balanced',None]},
 
-}
+
+
+            }
 
 
 
