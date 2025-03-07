@@ -137,7 +137,9 @@ def run_in_parallel():
 def run_in_sequence():
     experiment_types = ['independent', 'mixed']
     retrain = False
-    Patients, Patients_level_3 = patient_info()
+    #Patients, Patients_level_3 = patient_info()
+    Patients= [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+    Patients_level_3=[1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
     param_combinations = get_param_combinations()
 
     for experiment_type in experiment_types:
