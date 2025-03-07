@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split, StratifiedKFold
 from src.utils.setup_logger import preprocessing_logger
 
 
@@ -20,6 +19,7 @@ def log_label_distribution(df: pd.DataFrame, label_column: str, split_name: str,
 
 
 def create_splits(df: pd.DataFrame, label_column: str, test_size: float = 0.2, cv: int = 5, random_state: int = 42):
+    from sklearn.model_selection import train_test_split, StratifiedKFold
     train_idx, test_idx = train_test_split(
         df.index, test_size=test_size, stratify=df[label_column], random_state=random_state
     )

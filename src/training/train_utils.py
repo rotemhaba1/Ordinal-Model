@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from config.file_paths import *
-from sklearn.utils import resample
+
 
 from datetime import datetime
 
@@ -89,6 +89,7 @@ def preprocess_data(X_train, Y_train, params):
         X_train, Y_train_level = smote.fit_resample(X_train, Y_train["level_int"])
         Y_train = pd.DataFrame({"level_int": Y_train_level})
         """
+        from sklearn.utils import resample
         X_train, Y_train_level = resample(X_train, Y_train["level_int"],
                                                             replace=True,
                                                             n_samples=len(X_train),
