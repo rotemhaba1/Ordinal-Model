@@ -82,23 +82,28 @@ def maps_levels(df):
 
     return df,metrics_scores,num_samples
 
-def predict_ensemble(experiment_params,predict_dir):
+def predict_ensemble(experiment_params,predict_dir,p_i=''):
     df_prob_1=pd.DataFrame()
     df_prob_2 = pd.DataFrame()
     df_prob_3 = pd.DataFrame()
 
     for run_number, ex_id in enumerate(experiment_params, start=1):
-        prediction_file = os.path.join(predict_dir, f"cv_probabilities_{ex_id}.parquet")
+
+        prediction_file = os.path.join(predict_dir, f"cv_probabilities{p_i}_{ex_id}.parquet")
         df = pd.read_parquet(prediction_file)
+        num_classes = len(df["level"].unique())
         df_prob_1[run_number] = df['prob_class_1']
-        df_prob_2[run_number] = df['prob_class_2']
+        if num_classes==3:
+            df_prob_2[run_number] = df['prob_class_2']
         df_prob_3[run_number] = df['prob_class_3']
 
     df_prob_1['avg_all_columns'] = df_prob_1.mean(axis=1)
-    df_prob_2['avg_all_columns'] = df_prob_2.mean(axis=1)
+    if num_classes == 3:
+        df_prob_2['avg_all_columns'] = df_prob_2.mean(axis=1)
     df_prob_3['avg_all_columns'] = df_prob_3.mean(axis=1)
     df['prob_class_1'] = df_prob_1['avg_all_columns']
-    df['prob_class_2'] = df_prob_2['avg_all_columns']
+    if num_classes == 3:
+        df['prob_class_2'] = df_prob_2['avg_all_columns']
     df['prob_class_3'] = df_prob_3['avg_all_columns']
 
     return df
@@ -125,7 +130,8 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
                         experiment_params = ast.literal_eval(experiment['params'])
                     else:
                         experiment_params = experiment['params']
-                    df = predict_ensemble(experiment_params,predict_dir)
+                    p_i_param=(f'_P{p_i}' if p_i!='' else '')
+                    df = predict_ensemble(experiment_params,predict_dir,p_i=p_i_param)
                     model_name=experiment_id
 
                 df,metrics_scores,num_samples=maps_levels(df)
@@ -227,3 +233,30 @@ def update_experiments_file(experiments_valid,summary_path):
         summary_df = summary_df[~summary_df["index"].isin(experiments_valid["index"].to_list())]
         pd.concat([summary_df,experiments_valid]).to_excel(summary_path,index=False)
 
+def summary_results_mixed(result_path,summary_path):
+    summary_df=pd.read_excel(summary_path)
+    selected_columns = ['model', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
+                        'f1_weighted_avg', 'sensitivity_weighted_avg']
+    filtered_df = summary_df[selected_columns]
+    best_models_df = filtered_df.loc[filtered_df.groupby('model')['auc_weighted_avg'].idxmax()]
+    model_order = ['DecisionTrees', 'DecisionTrees_Ordinal', 'AdaBoost', 'AdaBoost_Ordinal',
+                   'RandomForest', 'RandomForest_Ordinal', 'catboost', 'XGBoost', 'ensemble']
+    best_models_df = best_models_df.set_index('model').loc[model_order].reset_index()
+    best_models_df.to_excel(f'{result_path}/mix_results.xlsx', index=False)
+
+def summary_results_independent(result_path,summary_path):
+    summary_df=pd.read_excel(summary_path)
+    summary_df['Have 3 classes']=np.where(summary_df['num_samples_class_2']>0,True,False)
+    selected_columns = ['Patients','model', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
+                        'f1_weighted_avg', 'sensitivity_weighted_avg','Have 3 classes']
+
+    filtered_df = summary_df[selected_columns]
+    best_models_df = filtered_df.loc[filtered_df.groupby(['Patients', 'model'])['auc_weighted_avg'].idxmax()]
+
+
+    model_order = ['DecisionTrees', 'DecisionTrees_Ordinal', 'AdaBoost', 'AdaBoost_Ordinal',
+                   'RandomForest', 'RandomForest_Ordinal', 'catboost', 'XGBoost', 'ensemble']
+    best_models_df['model'] = pd.Categorical(best_models_df['model'], categories=model_order, ordered=True)
+    best_models_df = best_models_df.sort_values(by=['Patients', 'model']).reset_index(drop=True)
+
+    best_models_df.to_excel(f'{result_path}/independent_results.xlsx', index=False)

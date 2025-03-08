@@ -118,11 +118,16 @@ def run_experiment(experiment_type, params,Patients, Patients_level_3,param_comb
     training_logger.info(f"Training started for experiment_type: {experiment_type}")
     training_logger.info(f"Model Hyperparameters: {params}")
 
+
+
     for model, combinations in param_combinations.items():
         for combo in combinations:
             params['model'] = model
             params['combo'] = combo
-            train(experiment_type, params, Patients_level_3,retrain)
+            try:
+                train(experiment_type, params, Patients_level_3, retrain)
+            except Exception as e:
+                training_logger.error(f"Error in training with model={model}, combo={combo}: {str(e)}", exc_info=True)
 
 
 def run_in_parallel():
@@ -137,7 +142,7 @@ def run_in_parallel():
 
 
 def run_in_sequence():
-    experiment_types = ['independent', 'mixed']
+    experiment_types = ['independent']
     retrain = False
     #Patients, Patients_level_3 = patient_info()
     Patients= [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]

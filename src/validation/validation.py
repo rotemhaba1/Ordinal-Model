@@ -6,17 +6,19 @@ from src.preprocessing.save_processed_data import patient_info
 
 if __name__ == "__main__":
     Patients, Patients_level_3 = patient_info()
-    experiment_type = "mixed" # mixed, independent
+    experiment_type = "independent" # mixed, independent
 
 
     if experiment_type == "mixed":
         experiments_to_update=find_experiments_to_update(EXPERIMENT_TRACKING_MIXED_PATH, EXPERIMENT_SUMMARY_MIXED_PATH,param_ensemble)
         experiments_valid=evaluate_experiments(experiments_to_update, PREDICT_TRACKING_MIXED_PATH)
         update_experiments_file(experiments_valid,EXPERIMENT_SUMMARY_MIXED_PATH)
+        summary_results_mixed(RESULTS_DIR,EXPERIMENT_SUMMARY_MIXED_PATH)
     elif experiment_type == "independent":
         experiments_to_update=find_experiments_to_update(EXPERIMENT_TRACKING_INDEPENDENT_PATH, EXPERIMENT_SUMMARY_INDEPENDENT_PATH,param_ensemble)
         experiments_valid=evaluate_experiments(experiments_to_update, PREDICT_TRACKING_INDEPENDENT_PATH,Patients_level_3)
         update_experiments_file(experiments_valid,EXPERIMENT_SUMMARY_INDEPENDENT_PATH)
+        summary_results_independent(RESULTS_DIR, EXPERIMENT_SUMMARY_INDEPENDENT_PATH)
 
 
 
