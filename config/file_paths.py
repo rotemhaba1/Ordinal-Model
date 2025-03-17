@@ -2,7 +2,10 @@ import os
 
 # Base directory of the project
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR=r'C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model'
+if ((BASE_DIR!=r'C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model')
+        & (BASE_DIR!=r'C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\16P\Ordinal-Model')):
+        BASE_DIR='/home/dsi/rotem.haba/Ordinal-Model'
+
 # Paths to raw and processed data
 RAW_DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
 PROCESSED_DATA_DIR = os.path.join(BASE_DIR, "data", "processed")
@@ -17,7 +20,7 @@ RESULTS_DIR = os.path.join(BASE_DIR, "results")
 
 
 # EXPERIMENT_TRACKING
-PREDICT_INDEPENDENT_PATH = os.path.join(RESULTS_DIR, "independent", "predictions")
+PREDICT_TRACKING_INDEPENDENT_PATH = os.path.join(RESULTS_DIR, "independent", "predictions")
 PREDICT_TRACKING_MIXED_PATH = os.path.join(RESULTS_DIR, "mixed", "predictions")
 PREDICT_TRACKING_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR, "probabilistic", "predictions")
 
@@ -42,7 +45,7 @@ def get_experiment_tracking_path(experiment_type):
 
 def get_predict_tracking_path(experiment_type):
     if experiment_type == "independent":
-        return PREDICT_INDEPENDENT_PATH
+        return PREDICT_TRACKING_INDEPENDENT_PATH
     elif experiment_type == "mixed":
         return PREDICT_TRACKING_MIXED_PATH
     elif experiment_type == "probabilistic":
