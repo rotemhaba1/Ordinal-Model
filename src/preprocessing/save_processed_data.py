@@ -172,6 +172,27 @@ def split_train_test(Patients=[],type=['everyone','independent']):
             df_split=create_splits(df,'level')
             df_split.to_parquet(SPLITS_DATA_DIR + r'/split_train_test_' + Patient_NO + '.parquet',
                               engine='pyarrow', compression='snappy', index=False)
+
+def run_pipeline_processed(experiment_types=['mixed', 'independent']):
+    Patients, Patients_level_3 = patient_info()
+    min_diff_Option=[1.5]
+    max_diff_Option=[9]
+    min_length_Option=[1.5]
+    max_length_Option=[8]
+    remove_level_Option=[['Inhalation']]
+
+    for experiment_type in experiment_types:
+        if experiment_type == 'mixed':
+            save_data(Patients, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,
+                      remove_level_Option, type=['everyone'], title="")
+            split_train_test(type=['everyone'])
+
+        elif experiment_type == 'independent':
+            save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,
+                      remove_level_Option, type=['independent'], title="")
+            split_train_test(Patients_level_3, type=['independent'])
+
+
 """
 Save independent:
     save_data(Patients_level_3,min_diff_Option,max_diff_Option,min_length_Option,max_length_Option,type=['independent'],title="")
@@ -191,20 +212,4 @@ max_diff_Option=[9,15]
 min_length_Option=[1.5]
 max_length_Option=[8,15]
 """
-
-if __name__ == "__main__":
-
-
-    Patients,Patients_level_3=patient_info()
-
-    min_diff_Option=[1.5]
-    max_diff_Option=[9]
-    min_length_Option=[1.5]
-    max_length_Option=[8]
-    remove_level_Option=[['Inhalation']]
-    save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option,type=['independent'], title="")
-    save_data(Patients, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option, remove_level_Option,type=['everyone'], title="")
-
-    split_train_test(type=['everyone'])
-    split_train_test(Patients_level_3,type=['independent'])
 
