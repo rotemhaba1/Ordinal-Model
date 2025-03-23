@@ -30,7 +30,8 @@ def add_ensemble(param_ensemble,tracking_df):
 def find_experiments_to_update(tracking_path, summary_path,param_ensemble):
     if os.path.exists(tracking_path):
         tracking_df = pd.read_excel(tracking_path)
-        tracking_df=add_ensemble(param_ensemble, tracking_df)
+        if 'probabilistic' not in tracking_path:
+            tracking_df=add_ensemble(param_ensemble, tracking_df)
     else:
         evaluation_logger.error(f"Tracking file not found: {tracking_path}")
         return pd.DataFrame(columns=["experiment_id"])
@@ -223,6 +224,7 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
 
     results_df = pd.DataFrame(results)
     return experiments_to_update.merge(results_df, on="index", how="left")
+
 
 def update_experiments_file(experiments_valid,summary_path):
     if not os.path.exists(summary_path):

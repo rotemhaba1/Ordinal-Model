@@ -28,11 +28,13 @@ PREDICT_TRACKING_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR, "probabilistic",
 EXPERIMENT_TRACKING_INDEPENDENT_PATH = os.path.join(RESULTS_DIR,'independent', "experiment_tracking_independent.xlsx")
 EXPERIMENT_TRACKING_MIXED_PATH = os.path.join(RESULTS_DIR,'mixed', "experiment_tracking_mixed.xlsx")
 EXPERIMENT_TRACKING_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR,'probabilistic', "experiment_tracking_probabilistic.xlsx")
+EXPERIMENT_TRACKING_PROBABILISTIC_STEP_2_PATH = os.path.join(RESULTS_DIR,'probabilistic', "experiment_tracking_probabilistic_step_2.xlsx")
 
 # Paths for experiment summary
 EXPERIMENT_SUMMARY_INDEPENDENT_PATH = os.path.join(RESULTS_DIR,'independent', "experiment_summary_independent.xlsx")
 EXPERIMENT_SUMMARY_MIXED_PATH = os.path.join(RESULTS_DIR,'mixed', "experiment_summary_mixed.xlsx")
 EXPERIMENT_SUMMARY_PROBABILISTIC_PATH = os.path.join(RESULTS_DIR,'probabilistic', "experiment_summary_probabilistic.xlsx")
+
 
 
 def get_experiment_tracking_path(experiment_type):
@@ -42,6 +44,9 @@ def get_experiment_tracking_path(experiment_type):
         return EXPERIMENT_TRACKING_MIXED_PATH
     elif experiment_type == "probabilistic":
         return EXPERIMENT_TRACKING_PROBABILISTIC_PATH
+    elif experiment_type == "probabilistic_step_2":
+        return EXPERIMENT_TRACKING_PROBABILISTIC_STEP_2_PATH
+
 
 def get_predict_tracking_path(experiment_type):
     if experiment_type == "independent":
@@ -50,6 +55,7 @@ def get_predict_tracking_path(experiment_type):
         return PREDICT_TRACKING_MIXED_PATH
     elif experiment_type == "probabilistic":
         return PREDICT_TRACKING_PROBABILISTIC_PATH
+
 
 def get_patient_raw_path(patient):
     return os.path.join(RAW_DATA_DIR, 'P'+str(patient))

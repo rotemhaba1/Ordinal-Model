@@ -43,7 +43,7 @@ def patient_info():
     return Patients,Patients_level_3
 
 def save_data(Patients,min_diff_Option=None,max_diff_Option=None,min_length_Option=None,max_length_Option=None
-              ,remove_level_Option=[['Inhalation']],type=['everyone','independent'],title=""):
+              ,remove_level_Option=[['Inhalation']],type=['everyone','independent','probabilistic'],title=""):
     # step 1 -SAVE TABLES for all p_ together
     if 'everyone' in type:
         for remove_level in remove_level_Option:
@@ -153,6 +153,7 @@ def save_data(Patients,min_diff_Option=None,max_diff_Option=None,min_length_Opti
                                 """
 
 
+
 def split_train_test(Patients=[],type=['everyone','independent']):
     if 'everyone' in type:
         df=pd.read_parquet(
@@ -173,7 +174,7 @@ def split_train_test(Patients=[],type=['everyone','independent']):
             df_split.to_parquet(SPLITS_DATA_DIR + r'/split_train_test_' + Patient_NO + '.parquet',
                               engine='pyarrow', compression='snappy', index=False)
 
-def run_pipeline_processed(experiment_types=['mixed', 'independent']):
+def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilistic']):
     Patients, Patients_level_3 = patient_info()
     min_diff_Option=[1.5]
     max_diff_Option=[9]
@@ -191,6 +192,11 @@ def run_pipeline_processed(experiment_types=['mixed', 'independent']):
             save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,
                       remove_level_Option, type=['independent'], title="")
             split_train_test(Patients_level_3, type=['independent'])
+
+        elif experiment_type == 'probabilistic':
+            save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,
+                      remove_level_Option, type=['everyone'], title="probabilistic")
+
 
 
 """
