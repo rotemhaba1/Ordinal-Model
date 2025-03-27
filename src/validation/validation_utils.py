@@ -17,6 +17,7 @@ def add_ensemble(param_ensemble,tracking_df):
     index_ensemble=[]
     for i in param_ensemble:
         filtered_rows = tracking_df[tracking_df.apply(lambda row: filter_params(row, param_ensemble[i]['model'], param_ensemble[i]['combo']), axis=1)]
+        filtered_rows=filtered_rows[filtered_rows['params'].apply(lambda x: ast.literal_eval(x).get('smote') ==  False)]
         if len(filtered_rows)==1:
             index_ensemble.append(filtered_rows['index'].iloc[0])
         else:
@@ -225,6 +226,107 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
     results_df = pd.DataFrame(results)
     return experiments_to_update.merge(results_df, on="index", how="left")
 
+def evaluate_experiments_prob(experiments_to_update, predict_dir,Patients_level_3=['']):
+    results = []
+    name_p='_P'
+    for _, experiment in experiments_to_update.iterrows():
+        auc_avg_scores, auc_weighted_scores = [], []
+        mse_avg_scores, mse_weighted_scores = [], []
+        accuracy_avg_scores, accuracy_weighted_scores = [], []
+        f1_avg_scores, f1_weighted_scores = [], []
+        sensitivity_avg_scores, sensitivity_weighted_scores = [], []
+        for p_i in Patients_level_3:
+            experiment_id = experiment["index"]
+            prediction_file = os.path.join(predict_dir, f"probabilities_step_2{name_p}{p_i}_{experiment_id}.parquet")
+            try:
+                df = pd.read_parquet(prediction_file)
+                model_name_step1= ast.literal_eval(experiment["params_step1"])['model']
+                model_name_step2 = ast.literal_eval(experiment["params_step2"])['model']
+                df,metrics_scores,num_samples=maps_levels(df)
+
+
+
+                try:
+                    y_true = pd.get_dummies(df["level_int"])
+                    num_classes = y_true.shape[1]
+                    column_names = [f"prob_class_{i + 1}" for i in range(3)] if num_classes == 3 else [
+                        'prob_class_1', 'prob_class_3']
+                    y_pred = df[column_names]
+                    y_pred_labels = y_pred.idxmax(axis=1).str.extract(r'(\d)').astype(int)
+                    y_true_labels = df["level_int"]
+                    y_pred_labels_ = y_pred.idxmax(axis=1).apply(lambda x: int(x[-1]))
+                    class_list  = [i + 1 for i in range(3)] if num_classes == 3 else [1,3]
+                    for i, class_name in enumerate(class_list):
+                        if class_name in y_true.columns:
+                            num_samples[class_name] += y_true.iloc[:, i].sum()
+
+                            metrics_scores["auc"][class_name].append(
+                                roc_auc_score(y_true.iloc[:, i], y_pred.iloc[:, i])
+                            )
+                            metrics_scores["mse"][class_name].append(
+                                mean_squared_error(y_true.iloc[:, i], y_pred.iloc[:, i])
+                            )
+                            metrics_scores["accuracy"][class_name].append(
+                                accuracy_score(y_true.iloc[:, i], y_pred_labels[0] == class_name)
+                            )
+                            metrics_scores["f1"][class_name].append(
+                                f1_score(y_true.iloc[:, i], y_pred_labels[0] == class_name)
+                            )
+                            metrics_scores["sensitivity"][class_name].append(
+                                recall_score(y_true.iloc[:, i], y_pred_labels[0] == class_name)
+                            )
+
+                    auc_avg_scores.append(roc_auc_score(y_true, y_pred, multi_class="ovr"))
+                    auc_weighted_scores.append(roc_auc_score(y_true, y_pred, average='weighted', multi_class="ovr"))
+
+                    mse_avg_scores.append(mean_squared_error(y_true, y_pred))
+
+                    accuracy_avg_scores.append(accuracy_score(y_true_labels, y_pred_labels_))
+                    accuracy_weighted_scores.append(accuracy_score(y_true_labels, y_pred_labels_))
+
+                    f1_avg_scores.append(f1_score(y_true_labels, y_pred_labels_, average='macro'))
+                    f1_weighted_scores.append(f1_score(y_true_labels, y_pred_labels_, average='weighted'))
+
+                    sensitivity_avg_scores.append(recall_score(y_true_labels, y_pred_labels_, average='macro'))
+                    sensitivity_weighted_scores.append(recall_score(y_true_labels, y_pred_labels_, average='weighted'))
+
+                except Exception as e:
+                    evaluation_logger.warning(f"Failed to compute metrics for experiment {experiment_id}, cv_fold {cv_fold}: {e}")
+
+                if auc_avg_scores:
+                    ll={
+                        "index": experiment_id,
+                        "model_step1":model_name_step1,
+                        "model_step2": model_name_step2,
+                        "Patients":str(p_i),
+                        "auc_avg": np.mean(auc_avg_scores),
+                        "auc_weighted_avg": np.mean(auc_weighted_scores),
+                        "mse_avg": np.mean(mse_avg_scores),
+                        "accuracy_avg": np.mean(accuracy_avg_scores),
+                        "accuracy_weighted_avg": np.mean(accuracy_weighted_scores),
+                        "f1_avg": np.mean(f1_avg_scores),
+                        "f1_weighted_avg": np.mean(f1_weighted_scores),
+                        "sensitivity_avg": np.mean(sensitivity_avg_scores),
+                        "sensitivity_weighted_avg": np.mean(sensitivity_weighted_scores),}
+                    for i in class_list:
+                        ll[f'auc_class_{i}']=np.mean(metrics_scores["auc"][i]) if metrics_scores["auc"][i] else None
+                        ll[f'mse_class_{i}'] = np.mean(metrics_scores["mse"][i]) if metrics_scores["mse"][i] else None
+                        ll[f'accuracy_class_{i}'] = np.mean(metrics_scores["accuracy"][i]) if metrics_scores["accuracy"][i] else None
+                        ll[f'f1_class_{i}'] = np.mean(metrics_scores["f1"][i]) if metrics_scores["f1"][i] else None
+                        ll[f'sensitivity_class_{i}'] = np.mean(metrics_scores["sensitivity"][i]) if metrics_scores["sensitivity"][i] else None
+                        ll[f'num_samples_class_{i}'] = num_samples[i]
+
+
+                    results.append(ll)
+
+
+
+
+            except Exception as e:
+                evaluation_logger.error(f"Error evaluating experiment {experiment_id}: {e}")
+
+    results_df = pd.DataFrame(results)
+    return experiments_to_update.merge(results_df, on="index", how="left")
 
 def update_experiments_file(experiments_valid,summary_path):
     if not os.path.exists(summary_path):
@@ -237,8 +339,8 @@ def update_experiments_file(experiments_valid,summary_path):
 
 def summary_results_mixed(result_path,summary_path):
     summary_df=pd.read_excel(summary_path)
-    selected_columns = ['model', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
-                        'f1_weighted_avg', 'sensitivity_weighted_avg']
+    selected_columns = ['params','model', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
+                        'f1_weighted_avg', 'sensitivity_weighted_avg','auc_class_3','auc_class_2','auc_class_1']
     filtered_df = summary_df[selected_columns]
     best_models_df = filtered_df.loc[filtered_df.groupby('model')['auc_weighted_avg'].idxmax()]
     model_order = ['DecisionTrees', 'DecisionTrees_Ordinal', 'AdaBoost', 'AdaBoost_Ordinal',
