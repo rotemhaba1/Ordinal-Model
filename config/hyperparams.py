@@ -31,6 +31,37 @@ param_grids = {
 
             }
 
+param_grids = {
+    "RandomForest": {
+        "class_weight": [ 'balanced',None], },
+
+    "RandomForest_Ordinal":{
+        'WIGR_power':[0.2,1],
+        'criterion':['WIGR_EV','WIGR_mode','WIGR_min','WIGR_EV_fix','WIGR_max'],
+        "class_weight": [ 'balanced',None]},
+
+    "DecisionTrees_Ordinal": {
+        'WIGR_power':[0.2,1],
+        'criterion':['WIGR_EV','WIGR_mode','WIGR_min','WIGR_EV_fix','WIGR_max'],
+        "class_weight": [ 'balanced',None]},
+
+    "DecisionTrees": {
+        "class_weight": [ 'balanced',None], },
+
+    "AdaBoost": {},
+
+    "XGBoost": {},
+
+    "AdaBoost_Ordinal": {
+        'WIGR_power': [1],
+        'criterion': ['WIGR_min'],
+        'algorithm': ['SAMME'],
+        "class_weight": [None]},
+
+
+
+            }
+
 
 
 param_ensemble={
@@ -50,5 +81,6 @@ params = {
     "max_length": 8,
     "remove_level": ["Inhalation"],
     'downsampling': False,
-    'smote': False,
+    'smote': True,
 }
+

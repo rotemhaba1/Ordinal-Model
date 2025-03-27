@@ -5,7 +5,7 @@ from  src.validation.validation import run_pipeline_validation
 
 
 if __name__ == "__main__":
-    experiment_types=['mixed']
-    run_pipeline_processed(experiment_types)
-    run_in_sequence(experiment_types)
+    experiment_types=['probabilistic_step_2'] # 'probabilistic', 'independent','mixed','probabilistic'
+    #run_pipeline_processed(experiment_types)
+    #run_in_sequence(experiment_types)
     run_pipeline_validation(experiment_types)
