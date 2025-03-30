@@ -75,12 +75,15 @@ param_ensemble={
 }
 
 params = {
-    "min_diff": 1.5,
+    "min_diff": 0.2,
     "max_diff": 9,
-    "min_length": 1.5,
+    "min_length": 0.2,
     "max_length": 8,
     "remove_level": ["Inhalation"],
     'downsampling': False,
     'smote': True,
+    'dimensional_reduction':'LDA',
+    'affine_transform':True,
+    'p_anchor':'P_7'
 }
 

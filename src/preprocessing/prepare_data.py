@@ -5,7 +5,7 @@ import re
 import os
 np.random.seed(42)
 
-def get_data(eeg_file_name, times_file_name, challenge_test_file_name):
+def get_data(eeg_file_name, times_file_name, challenge_test_file_name,rolling_flag=False):
     '''
 
     :param eeg_file_name: EEG_P1.txt
@@ -56,6 +56,10 @@ def get_data(eeg_file_name, times_file_name, challenge_test_file_name):
 
 
     eeg_data = eeg_data[['Respiration', 'EEG (.5 - 35 Hz)', 'EEG (.5 - 35 Hz).1']]
+    if rolling_flag:
+        window_size = 250
+        eeg_data['Respiration'] = eeg_data['Respiration'].rolling(window=window_size, center=True).mean()
+
     freq = 1000
     N = eeg_data.shape[0]
     t = np.linspace(0, (1 / freq) * (N), N)

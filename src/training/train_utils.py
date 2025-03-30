@@ -6,6 +6,7 @@ from src.utils.smote import synthetic_oversample,random_oversample
 from datetime import datetime
 
 
+
 def load_data_experiment_mixed(params):
     # Define file paths
     target_path = os.path.join(
@@ -37,6 +38,74 @@ def load_data_experiment_mixed(params):
 
     return X,Y,split_train_test
 
+def load_data_experiment_affine(params):
+    # Define file paths
+    target_path = os.path.join(
+        PROCESSED_DATA_DIR,
+        f"target_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+        f"min_length{params['min_length']}max_length{params['max_length']}"
+        f"remove_level_{params['remove_level'][0]}affine.parquet"
+    )
+
+    eeg_df_path = os.path.join(
+        PROCESSED_DATA_DIR,
+        f"EEG_df_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+        f"min_length{params['min_length']}max_length{params['max_length']}"
+        f"remove_level_{params['remove_level'][0]}affine.parquet"
+    )
+
+    split_train_test_path = os.path.join(
+        SPLITS_DATA_DIR,
+        f"split_train_test_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+        f"min_length{params['min_length']}max_length{params['max_length']}"
+        f"remove_level_{params['remove_level'][0]}affine.parquet"
+    )
+
+    # Read parquet files
+    Y = pd.read_parquet(target_path)
+    X = pd.read_parquet(eeg_df_path)
+    split_train_test = pd.read_parquet(split_train_test_path)
+
+
+    return X,Y,split_train_test
+
+def load_data_experiment_after_affine(params,cv_i):
+
+    p_anchor=params['p_anchor']
+    if params['affine_transform']:
+        ll=f'_{p_anchor}affine_{cv_i}'
+    else:
+        ll = f'outliers_lda_{cv_i}'
+
+
+    # Define file paths
+    target_path = os.path.join(
+        PROCESSED_DATA_DIR + r'/target_min_diff' + str(params['min_diff']) + 'max_diff' + str(
+            params['max_diff']) + 'min_length'
+        + str(params['min_length']) + 'max_length' + str(params['max_length']) + ll + '.parquet'
+    )
+
+    eeg_df_path = os.path.join(
+        PROCESSED_DATA_DIR + r'/EEG_df_min_diff' + str(params['min_diff']) + 'max_diff' + str(
+            params['max_diff']) + 'min_length'
+        + str(params['min_length']) + 'max_length' + str(params['max_length']) + ll + '.parquet'
+    )
+
+    split_train_test_path = os.path.join(
+        SPLITS_DATA_DIR,
+        f"split_train_test_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+        f"min_length{params['min_length']}max_length{params['max_length']}"
+        f"remove_level_{params['remove_level'][0]}affine.parquet"
+    )
+
+    # Read parquet files
+    Y = pd.read_parquet(target_path)
+    X = pd.read_parquet(eeg_df_path)
+    split_train_test = pd.read_parquet(split_train_test_path)
+
+
+    return X,Y,split_train_test
+
 def load_data_experiment_mixed_smote(X,Y,params,cv_i):
 
     eeg_df_path = os.path.join(
@@ -51,6 +120,32 @@ def load_data_experiment_mixed_smote(X,Y,params,cv_i):
         f"target_min_diff{params['min_diff']}max_diff{params['max_diff']}"
         f"min_length{params['min_length']}max_length{params['max_length']}"
         f"remove_level_{params['remove_level'][0]}_{cv_i}_smote.parquet"
+    )
+
+    if os.path.exists(eeg_df_path) and os.path.exists(target_path):
+        X = pd.read_parquet(eeg_df_path)
+        Y = pd.read_parquet(target_path)
+        return X, Y
+
+    X, Y = synthetic_oversample(X, Y)
+    X.to_parquet(eeg_df_path, index=False)
+    Y.to_parquet(target_path, index=False)
+    return X, Y
+
+def load_data_experiment_affine_smote(X,Y,params,cv_i):
+
+    eeg_df_path = os.path.join(
+        PROCESSED_DATA_DIR,
+        f"EEG_df_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+        f"min_length{params['min_length']}max_length{params['max_length']}"
+        f"remove_level_{params['remove_level'][0]}_affine{params['affine_transform']}_{params['p_anchor']}_{cv_i}_smote.parquet"
+    )
+
+    target_path = os.path.join(
+        PROCESSED_DATA_DIR,
+        f"target_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+        f"min_length{params['min_length']}max_length{params['max_length']}"
+        f"remove_level_{params['remove_level'][0]}_affine{params['affine_transform']}_{params['p_anchor']}_{cv_i}_smote.parquet"
     )
 
     if os.path.exists(eeg_df_path) and os.path.exists(target_path):
@@ -351,3 +446,4 @@ def save_index_step_2(index_step1,index_step2,params_step1, params_step2, experi
     df = df.drop_duplicates(subset='index', keep='first')
     df = df.reset_index(drop=True)
     df.to_excel(experiment_tracking_path, index=False)
+

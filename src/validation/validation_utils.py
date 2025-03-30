@@ -113,11 +113,18 @@ def predict_ensemble(experiment_params,predict_dir,p_i=''):
 def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=['']):
     results = []
     name_p = '' if Patients_level_3[0]=='' else '_P'
+    affine = True if 'affine' in predict_dir else False
     for p_i in Patients_level_3:
         for _, experiment in experiments_to_update.iterrows():
             experiment_id = experiment["index"]
             prediction_file = os.path.join(predict_dir, f"cv_probabilities{name_p}{p_i}_{experiment_id}.parquet")
-
+            if affine:
+                if os.path.exists(os.path.join(predict_dir, f"cv_probabilities{name_p}{p_i}_True_{experiment_id}.parquet")):
+                    prediction_file = os.path.join(predict_dir,
+                                                   f"cv_probabilities{name_p}{p_i}_True_{experiment_id}.parquet")
+                else:
+                    prediction_file = os.path.join(predict_dir,
+                                                   f"cv_probabilities{name_p}{p_i}_False_{experiment_id}.parquet")
 
             if (not os.path.exists(prediction_file)) & (experiment_id!='ensemble'):
                 evaluation_logger.warning(f"Prediction file missing: {prediction_file}")
@@ -347,6 +354,22 @@ def summary_results_mixed(result_path,summary_path):
                    'RandomForest', 'RandomForest_Ordinal', 'catboost', 'XGBoost', 'ensemble']
     best_models_df = best_models_df.set_index('model').loc[model_order].reset_index()
     best_models_df.to_excel(f'{result_path}/mix_results.xlsx', index=False)
+
+def summary_results_affine(result_path,summary_path):
+    summary_df=pd.read_excel(summary_path)
+    summary_df['params2'] = summary_df['params'].apply(ast.literal_eval)
+
+    summary_df['p_anchor']=summary_df['params2'].apply(lambda x: x['p_anchor'])
+    summary_df['affine_transform'] = summary_df['params2'].apply(lambda x: x['affine_transform'])
+    selected_columns = ['params','model','affine_transform','p_anchor', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
+                        'f1_weighted_avg', 'sensitivity_weighted_avg','auc_class_3','auc_class_2','auc_class_1']
+    filtered_df = summary_df[selected_columns]
+    best_models_df = filtered_df.loc[filtered_df.groupby(['model','affine_transform','p_anchor'])['auc_weighted_avg'].idxmax()]
+    model_order = ['DecisionTrees', 'DecisionTrees_Ordinal', 'AdaBoost', 'AdaBoost_Ordinal',
+                   'RandomForest', 'RandomForest_Ordinal', 'catboost', 'XGBoost', 'ensemble']
+    available_models = [m for m in model_order if m in best_models_df['model'].values]
+    best_models_df = best_models_df.set_index('model').loc[available_models].reset_index()
+    best_models_df.to_excel(f'{result_path}/affine_results.xlsx', index=False)
 
 def summary_results_independent(result_path,summary_path):
     summary_df=pd.read_excel(summary_path)

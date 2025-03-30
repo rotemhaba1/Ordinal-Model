@@ -1,4 +1,6 @@
 import pandas as pd
+from networkx.generators.triads import TRIAD_EDGES
+
 from src.utils.setup_logger import preprocessing_logger
 
 
@@ -39,6 +41,60 @@ def create_splits(df: pd.DataFrame, label_column: str, test_size: float = 0.2, c
         summary_table = log_label_distribution(df.loc[train_idx], label_column, f"CV Fold {i + 1} Train", summary_table)
         summary_table = log_label_distribution(df.loc[val_idx], label_column, f"CV Fold {i + 1} Validation",
                                                summary_table)
+
+    preprocessing_logger.info(f"\n{summary_table.to_string(index=False)}")
+
+    return split_df
+
+def create_splits_affine(df: pd.DataFrame, label_column: str, test_size: float = 0.2, cv: int = 5,
+                  random_state: int = 42) -> pd.DataFrame:
+    import pandas as pd
+    import numpy as np
+    from sklearn.model_selection import train_test_split, StratifiedKFold
+
+    rng = np.random.default_rng(42)
+
+    train_idx = []
+    test_idx = []
+
+    for patient, group in df.groupby('Patient_NO'):
+        train_i, test_i = train_test_split(
+            group.index,
+            test_size=0.2,
+            stratify=group['level'],
+            random_state=42
+        )
+        train_idx.extend(train_i)
+        test_idx.extend(test_i)
+
+    train_idx = np.array(train_idx)
+    test_idx = np.array(test_idx)
+
+    split_df = pd.DataFrame(index=df.index)
+    split_df['Respiratory cycle'] = df[label_column]
+    split_df['Patient_NO'] = df['Patient_NO']
+    split_df['train_test'] = split_df.index.isin(train_idx)
+
+    # Initialize summary table
+    summary_table = pd.DataFrame(columns=['Split', 'Label', 'Count', 'Percentage'])
+    summary_table = log_label_distribution(df, label_column, "Total Data", summary_table)
+    summary_table = log_label_distribution(df.loc[train_idx], label_column, "Train Split", summary_table)
+    summary_table = log_label_distribution(df.loc[test_idx], label_column, "Test Split", summary_table)
+
+    for patient, group in df.groupby('Patient_NO'):
+        skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+        for i, (cv_train_idx, val_idx) in enumerate(skf.split(group, group['level'])):
+            if f'cv_{i + 1}' not in split_df.columns:
+                split_df[f'cv_{i + 1}'] = False
+            split_df.loc[group.index[cv_train_idx], f'cv_{i + 1}'] = True
+
+
+            summary_table = log_label_distribution(df.loc[cv_train_idx], label_column,
+                                                   f"CV Fold {i + 1} Train", summary_table)
+            summary_table = log_label_distribution(df.loc[val_idx], label_column,
+                                                   f"CV Fold {i + 1} Validation", summary_table)
+
+
 
     preprocessing_logger.info(f"\n{summary_table.to_string(index=False)}")
 

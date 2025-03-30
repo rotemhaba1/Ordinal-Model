@@ -58,6 +58,33 @@ def train_experiment_mixed(params,experiment_id,path):
     cv_results_df = pd.concat(cv_probabilities, names=["cv_fold"])
     cv_results_df.to_parquet(save_path, engine="pyarrow")
 
+def train_experiment_affine(params,experiment_id,path):
+    cv_probabilities = {}
+    for cv_i in ['cv_1'  , 'cv_2',   'cv_3' ,  'cv_4',   'cv_5']:
+        training_logger.info(f"Start : {cv_i}/cv_5")
+        X, Y, split_train_test = load_data_experiment_after_affine(params, cv_i)
+        train_indices = split_train_test[split_train_test[cv_i] == True].index.intersection(X.index)
+        test_indices = split_train_test[split_train_test[cv_i] == False].index.intersection(X.index)
+        X_train, X_test = X.loc[train_indices], X.loc[test_indices]
+        Y_train, Y_test = Y.loc[train_indices], Y.loc[test_indices]
+        X_train, Y_train = preprocess_data(X_train, Y_train,params)
+        clf = predict_models(params)
+        if params['smote']:
+            X_train,Y_train=load_data_experiment_affine_smote(X_train,Y_train[["level_int"]],params,cv_i)
+        clf = clf.fit(X_train, Y_train["level_int"])
+        X_test = X_test.drop(columns=["Patient_NO",'Respiratory cycle'])
+        y_predict_proba = clf.predict_proba(X_test)
+        y_predict_proba_df = pd.DataFrame(y_predict_proba, index=Y_test.index,
+                                          columns=["prob_class_1", "prob_class_2", "prob_class_3"])
+
+        Y_test = pd.concat([Y_test, y_predict_proba_df], axis=1)
+        cv_probabilities[cv_i] = Y_test
+
+    save_path = os.path.join(path, f"cv_probabilities_{params['affine_transform']}_{experiment_id}.parquet")
+
+    cv_results_df = pd.concat(cv_probabilities, names=["cv_fold"])
+    cv_results_df.to_parquet(save_path, engine="pyarrow")
+
 def train_experiment_independent(params,experiment_id,path,Patients_level_3):
     for p_id in Patients_level_3:
         X,Y,split_train_test = load_data_experiment_independent(p_id)
@@ -190,6 +217,8 @@ def train(experiment_type,params,Patients_level_3,retrain=True):
     start_time = time.time()
     if experiment_type == "mixed":
         train_experiment_mixed(params,experiment_id,get_predict_tracking_path(experiment_type))
+    if experiment_type == "affine":
+        train_experiment_affine(params,experiment_id,get_predict_tracking_path(experiment_type))
     elif experiment_type == "independent":
         train_experiment_independent(params, experiment_id, get_predict_tracking_path(experiment_type),Patients_level_3)
     elif experiment_type == "probabilistic":

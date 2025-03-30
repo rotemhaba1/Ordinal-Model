@@ -21,6 +21,14 @@ def run_pipeline_validation(experiment_types=['mixed', 'independent']):
             update_experiments_file(experiments_valid, EXPERIMENT_SUMMARY_INDEPENDENT_PATH)
             summary_results_independent(RESULTS_DIR, EXPERIMENT_SUMMARY_INDEPENDENT_PATH)
 
+        elif experiment_type == "affine":
+            experiments_to_update = find_experiments_to_update(EXPERIMENT_TRACKING_AFFINE,
+                                                               EXPERIMENT_SUMMARY_AFFINE_PATH, param_ensemble)
+            if experiments_to_update.__len__()>0:
+                experiments_valid = evaluate_experiments(experiments_to_update, PREDICT_TRACKING_AFFINE_PATH)
+                update_experiments_file(experiments_valid, EXPERIMENT_SUMMARY_AFFINE_PATH)
+            summary_results_affine(RESULTS_DIR, EXPERIMENT_SUMMARY_AFFINE_PATH)
+
         """ 
         elif experiment_type == "probabilistic_step_2": 
             experiments_to_update = find_experiments_to_update(EXPERIMENT_TRACKING_PROBABILISTIC_STEP_2_PATH,
