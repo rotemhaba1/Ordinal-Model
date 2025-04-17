@@ -5,8 +5,34 @@ import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 import numpy as np
 from src.preprocessing.AffineTransform  import SimpleAffineTransform
+from src.preprocessing.AffineNetWrapper  import SimpleMLPTransform
 from config.hyperparams import *
 from src.preprocessing.save_processed_data  import *
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+import matplotlib.pyplot as plt
+from sklearn.neighbors import NearestNeighbors
+from sklearn.cross_decomposition import PLSRegression
+import pandas as pd
+
+
+
+
+
+def balanced_core_points(X, y):
+    core_idx = []
+    min_class_size = min((y == label).sum() for label in np.unique(y))
+
+    for label in np.unique(y):
+        X_label = X[y == label]
+        nbrs = NearestNeighbors(n_neighbors=5).fit(X_label)
+        distances, _ = nbrs.kneighbors()
+        densities = distances.sum(axis=1)
+        top_k_idx = np.argsort(densities)[:min_class_size]
+        core_idx.extend(X_label.iloc[top_k_idx].index)
+
+    return core_idx
+
 
 def apply_plot_colored_signals_stacked():
     patient = 51
@@ -89,9 +115,9 @@ def affine_transform_data(params):
 
             test_indices = split_train_test[(split_train_test[f'{cv_i}'] == False) & (split_train_test['Patient_NO']==p_n)].index.intersection(x_df.index)
 
-            all_indices = split_train_test[split_train_test['Patient_NO'] == p_n].index.intersection(x_df.index)
-
             model = SimpleAffineTransform()
+            model = SimpleMLPTransform(hidden_layer_sizes=(64,), max_iter=500)
+
 
             model.fit_transform(
                 X_anchor=x_df.loc[anchor_indices],
@@ -100,7 +126,27 @@ def affine_transform_data(params):
                 y_subject=Y['level'].loc[train_indices]
             )
 
-            X_affine_train=model.transform(x_df.loc[all_indices])
+            X_anchor = x_df[['lda_1', 'lda_2']].loc[anchor_indices]
+            y_anchor = Y['level'].loc[anchor_indices]
+            X_subject_test_before = x_df[['lda_1', 'lda_2']].loc[test_indices]
+            y_subject_test_before = Y['level'].loc[test_indices]
+            X_subject_test_after = model.transform(x_df.loc[test_indices])
+            y_subject_test_after = Y['level'].loc[test_indices].reset_index(drop=True)
+            X_subject_train_after = model.transform(x_df.loc[train_indices])
+            y_subject_train_after = Y['level'].loc[train_indices]
+
+            clf_before = LogisticRegression(max_iter=1000)
+            clf_before.fit(X_subject_test_before, y_subject_test_before)
+            acc_before = accuracy_score(y_subject_test_before, clf_before.predict(X_subject_test_before))
+
+            clf_after = LogisticRegression(max_iter=1000)
+            clf_after.fit(X_subject_test_after, y_subject_test_after)
+            acc_after = accuracy_score(y_subject_test_after, clf_after.predict(X_subject_test_after))
+
+
+            print(f"Accuracy before transform: {acc_before:.2f}")
+            print(f"Accuracy after transform: {acc_after:.2f}")
+
 
 
 
@@ -113,12 +159,40 @@ def affine_transform_data(params):
                 y_subject_test_after=Y['level'].loc[test_indices],
                 X_subject_train_after=model.transform(x_df.loc[train_indices]),
                 y_subject_train_after=Y['level'].loc[train_indices],
-                title=f"Affine Transform | Patient {p_n}"
+                title=f"Affine Transform | Patient {p_n}, Accuracy before: {acc_before:.2f}, Accuracy after: {acc_after:.2f} "
             )
+
+
+
+            print("")
+
+
+
+def evaluate_lda_success(X_after_lda_p, Y_p):
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import cross_val_score
+
+    # Drop non-LDA columns if exist
+    X_lda = X_after_lda_p[['lda_1', 'lda_2']].values
+    y = Y_p.values
+
+    # Simple Logistic Regression on LDA components
+    clf = LogisticRegression()
+    acc = cross_val_score(clf, X_lda, y, cv=3, scoring='accuracy').mean()
+
+    print(f"LDA Success (cross-validated accuracy): {acc:.3f}")
+
+    return acc
 
 
 def apply_plot_lda_outliers():
     X, Y, split_train_test = load_data_experiment_affine(params)
+    level_mapping = {
+        'FEV1 [-10,inf)': 1,
+        'FEV1 [-20,-10)': 2,
+        'FEV1 [-inf,-20)': 3
+    }
+    Y["level_int"] = Y["level"].map(level_mapping)
     x_df = X.drop(columns=[col for col in ["Patient_NO", 'Respiratory cycle'] if col in X.columns])
     for cv_i in ['cv_1', 'cv_2', 'cv_3', 'cv_4', 'cv_5']:
         X_after_lda = X[["Patient_NO", 'Respiratory cycle']]
@@ -128,35 +202,72 @@ def apply_plot_lda_outliers():
         for p_n in Y["Patient_NO"].unique().tolist():
             train_indices = split_train_test[(split_train_test[f'{cv_i}'] == True) & (split_train_test['Patient_NO'] == p_n)].index
             p_indices = split_train_test[split_train_test['Patient_NO'] == p_n].index
+            test_indices = split_train_test[(split_train_test[f'{cv_i}'] == False) & (split_train_test['Patient_NO'] == p_n)].index
+
+            core_indices = balanced_core_points(x_df.loc[train_indices], Y['level'].loc[train_indices])
+            print(Y['level'].loc[core_indices].value_counts())
+
             lda = LDA(n_components=2)
-            lda.fit_transform(x_df.loc[train_indices], Y['level'].loc[train_indices])
+            lda = PLSRegression(n_components=10)
+            lda.fit_transform(x_df.loc[train_indices], Y['level_int'].loc[train_indices])
+            #lda.fit_transform(x_df.loc[core_indices], Y['level'].loc[core_indices])
             X_after_lda.loc[p_indices, ['lda_1', 'lda_2']] = lda.transform(x_df.loc[p_indices])
             outliers_idx = clean_lda(X_after_lda.loc[p_indices], threshold=3)
-            #outliers_idx = clean_mahalanobis_outliers(X_after_lda.loc[p_indices], train_indices, threshold=3)
-            plot_lda_outliers(X_after_lda,outliers_idx,title=p_n)
 
-def plot_lda_outliers(df, outliers_idx,title=''):
-    import matplotlib.pyplot as plt
+            acc_with_outliers=evaluate_lda_success(X_after_lda.loc[test_indices], Y['level'].loc[test_indices])
+            test_indices_without_outliers =[idx for idx in test_indices if idx not in outliers_idx]
+            acc_without_outliers=evaluate_lda_success(X_after_lda.loc[test_indices_without_outliers], Y['level'].loc[test_indices_without_outliers])
 
-    plt.figure(figsize=(8, 6))
+            plot_lda_outliers(X_after_lda.loc[p_indices],Y_after_lda.loc[p_indices]['level'],outliers_idx,title=f'{p_n} , Acc : '
+                                                                            f'with outliers {round(acc_with_outliers * 100)}%'
+                                                                            f'without outliers {round(acc_without_outliers * 100)}%')
+            print("next")
 
-    # Normal points
-    plt.scatter(df['lda_1'], df['lda_2'], label='Normal Data', alpha=0.5)
 
-    # Outliers
-    plt.scatter(df.loc[outliers_idx, 'lda_1'], df.loc[outliers_idx, 'lda_2'],
-                color='red', label='Outliers')
+def plot_lda_outliers(df, Y, outliers_idx, title=''):
+    outliers_idx = np.array(outliers_idx).flatten()
+    mask_non_outliers = ~df.index.isin(outliers_idx)
+    level_mapping = {
+        'FEV1 [-10,inf)': 1,
+        'FEV1 [-20,-10)': 2,
+        'FEV1 [-inf,-20)': 3
+    }
+    Y_non_outliers_encoded = Y[mask_non_outliers].map(level_mapping)
 
-    plt.xlabel('lda_1')
-    plt.ylabel('lda_2')
-    plt.title(f'LDA Outlier Detection {title}')
-    plt.legend()
-    plt.grid(True)
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+    axes[0].scatter(df['lda_1'], df['lda_2'], label='Normal Data', alpha=0.5)
+    axes[0].scatter(df.loc[outliers_idx, 'lda_1'], df.loc[outliers_idx, 'lda_2'], color='red', label='Outliers')
+    axes[0].set_title(f'LDA Outlier Detection\n{title}')
+    axes[0].set_xlabel('lda_1')
+    axes[0].set_ylabel('lda_2')
+    axes[0].legend()
+    axes[0].grid(True)
+
+    scatter = axes[1].scatter(
+        df.loc[mask_non_outliers, 'lda_1'],
+        df.loc[mask_non_outliers, 'lda_2'],
+        c=Y_non_outliers_encoded,
+        cmap='Set1',
+        alpha=0.7
+    )
+    legend1 = axes[1].legend(*scatter.legend_elements(), title="Class")
+    axes[1].add_artist(legend1)
+    axes[1].set_title('Label Distribution (without outliers)')
+    axes[1].set_xlabel('lda_1')
+    axes[1].set_ylabel('lda_2')
+    axes[1].grid(True)
+
+    plt.tight_layout()
     plt.show()
+
+
+
+
 
 if __name__ == '__main__':
 
     # apply_plot_colored_signals_stacked()
-    apply_affine_transform_data()
-    # apply_plot_lda_outliers()
+    # apply_affine_transform_data()
+    apply_plot_lda_outliers()
 

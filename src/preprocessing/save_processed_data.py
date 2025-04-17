@@ -1,5 +1,5 @@
 from scipy.ndimage import affine_transform
-
+from scipy.spatial.distance import mahalanobis
 from src.preprocessing.prepare_data import read_data, filter_data,get_data,transform_data
 from config.file_paths import *
 from config.hyperparams import *
@@ -9,7 +9,35 @@ from src.training.train_utils import load_data_experiment_affine
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 import numpy as np
 from src.preprocessing.AffineTransform  import SimpleAffineTransform
+from src.preprocessing.AffineNetWrapper2  import SimpleMLPTransform
+from src.preprocessing.PCALDATransform  import PCALDATransform
 #from src.preprocessing.data_visualization  import plot_lda_outliers
+import pandas as pd
+from scipy.stats import zscore
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
+from sklearn.pipeline import Pipeline
+import numpy as np
+from sklearn.cross_decomposition import PLSRegression
+
+def get_pca_lda_pipeline(X, y, n_pca_components=10, lda_components_requested=2, use_shrinkage=True):
+    n_classes = len(np.unique(y))
+    max_lda_components = min(n_pca_components, n_classes - 1)
+    lda_components = min(lda_components_requested, max_lda_components)
+
+    pca = PCA(n_components=n_pca_components)
+
+    if use_shrinkage:
+        lda = LDA(n_components=lda_components, solver='lsqr', shrinkage='auto')
+    else:
+        lda = LDA(n_components=lda_components)
+
+    pipeline = Pipeline([
+        ('pca', pca),
+        ('lda', lda)
+    ])
+
+    return pipeline
 
 def patient_info():
     summary_data = []
@@ -61,6 +89,7 @@ def save_data(Patients,min_diff_Option=None,max_diff_Option=None,min_length_Opti
                         for max_length in max_length_Option:
                             target_list=[]
                             EEG_df_list=[]
+                            clear_p = []
                             for patient in Patients:
                                 Patient_NO = 'P_'+str(patient)
                                 file_location = get_patient_raw_path(str(patient))
@@ -72,11 +101,15 @@ def save_data(Patients,min_diff_Option=None,max_diff_Option=None,min_length_Opti
                                 EEG_df,target=filter_data(Respiratory_cycle_df=Respiratory_cycle_df.copy(),EEG_df= data, Percentage_of_next_level=0.2,
                                                                                                breath_type='quiet_breath',remove_class=[''], remove_level=remove_level,
                                                                                                min_diff=min_diff, max_diff=max_diff, min_length=min_length, max_length=max_length)
+                                #if sum(target=='FEV1 [-20,-10)')<15:
+                                #    clear_p.append(Patient_NO)
+                                if sum(target == 'FEV1 [-10,inf)') < 20:
+                                    clear_p.append(Patient_NO)
                                 if add_3_class: # target=='FEV1 [-20,-10)'
                                     if sum(target=='FEV1 [-20,-10)')<15:
                                         mask = target == 'FEV1 [-10,inf)'
                                         indices = target[mask].index
-                                        n_to_change = int(0.05 * len(indices))
+                                        n_to_change = max(int(0.05 * len(indices)),15)
                                         indices_to_change = indices[-n_to_change:]
 
                                         target.loc[indices_to_change] = 'FEV1 [-20,-10)'
@@ -109,6 +142,16 @@ def save_data(Patients,min_diff_Option=None,max_diff_Option=None,min_length_Opti
                             target['Respiratory cycle']=EEG_df['Respiratory cycle']
                             target=target.drop(['colFromIndex'], axis=1)
                             target = target.reset_index(drop=True)
+
+                            target = target[~target['Patient_NO'].isin(clear_p)].reset_index(drop=True)
+                            EEG_df = EEG_df[~EEG_df['Patient_NO'].isin(clear_p)].reset_index(drop=True)
+
+                            level_mapping = {
+                                'FEV1 [-10,inf)': 1,
+                                'FEV1 [-20,-10)': 2,
+                                'FEV1 [-inf,-20)': 3
+                            }
+                            target["level_int"] = target["level"].map(level_mapping)
 
                             preprocessing_logger.info(
                                 f"min_diff: {min_diff}, max_diff: {max_diff}, min_length: {min_length}, max_length: {max_length}")
@@ -171,45 +214,40 @@ def save_data(Patients,min_diff_Option=None,max_diff_Option=None,min_length_Opti
                                 """
 
 
-def clean_lda(df, threshold=3):
-    from scipy.stats import zscore
-    z1 = zscore(df['lda_1'])
-    z2 = zscore(df['lda_2'])
+def clean_lda(df, threshold=3, n_components=2):
+    lda_cols = [f'lda_{i}' for i in range(1, n_components + 1)]
 
-    outliers_idx = df.index[(np.abs(z1) > threshold) | (np.abs(z2) > threshold)]
+    z_scores = df[lda_cols].apply(zscore)
+    mask = (np.abs(z_scores) > threshold).any(axis=1)
 
+    outliers_idx = df.index[mask]
     return outliers_idx
 
-def clean_mahalanobis_outliers(df, train_indices, threshold=3):
-    from scipy.spatial.distance import mahalanobis
-    train_data = df.loc[train_indices, ['lda_1', 'lda_2']].dropna().values
-
-    cov = np.cov(train_data, rowvar=False)
-    inv_covmat = np.linalg.inv(cov)
-    mean_vec = np.mean(train_data, axis=0)
-
-    test_data = df[['lda_1', 'lda_2']].dropna()
-    dists = np.array([mahalanobis(row, mean_vec, inv_covmat) for row in test_data.values])
-
-    outliers_idx = test_data.index[dists > threshold]
-
-    return outliers_idx
 
 def dimensional_reduction_LDA(params):
+    n_components=params['n_components']
     for cv_i in ['cv_1', 'cv_2', 'cv_3', 'cv_4', 'cv_5']:
         X, Y, split_train_test = load_data_experiment_affine(params)
+        level_mapping = {
+            'FEV1 [-10,inf)': 1,
+            'FEV1 [-20,-10)': 2,
+            'FEV1 [-inf,-20)': 3
+        }
+        Y["level_int"] = Y["level"].map(level_mapping)
         x_df = X.drop(columns=[col for col in ["Patient_NO", 'Respiratory cycle'] if col in X.columns])
         X_after_lda = X[["Patient_NO", 'Respiratory cycle']]
         Y_after_lda = Y.copy()
-        X_after_lda.loc[:,'lda_1'] = np.nan
-        X_after_lda.loc[:,'lda_2'] = np.nan
+        for i in range(1, n_components+1):
+            X_after_lda.loc[:, f'lda_{i}'] = np.nan
         for p_n in Y["Patient_NO"].unique().tolist():
             train_indices = split_train_test[(split_train_test[f'{cv_i}'] == True) & (split_train_test['Patient_NO']==p_n)].index
             p_indices= split_train_test[split_train_test['Patient_NO']==p_n].index
-            lda = LDA(n_components=2)
-            lda.fit_transform(x_df.loc[train_indices], Y['level'].loc[train_indices])
-            X_after_lda.loc[p_indices, ['lda_1', 'lda_2']] = lda.transform(x_df.loc[p_indices])
-            outliers_idx=clean_lda(X_after_lda.loc[p_indices])
+            #lda = LDA(n_components=n_components)
+            lda = PLSRegression(n_components=n_components)
+            #lda = PCALDATransform(n_pca_components=100, n_lda_components=2)
+            lda.fit_transform(x_df.loc[train_indices], Y['level_int'].loc[train_indices])
+            X_after_lda.loc[p_indices, [f'lda_{i}' for i in range(1, n_components+1)]] = lda.transform(x_df.loc[p_indices])
+            outliers_idx=clean_lda(X_after_lda.loc[p_indices],n_components=n_components)
             X_after_lda = X_after_lda.drop(index=outliers_idx)
             Y_after_lda = Y_after_lda.drop(index=outliers_idx)
             X = X.drop(index=outliers_idx)
@@ -244,6 +282,9 @@ def learn_affine(source, target):
     return A, b
 
 def affine_transform_data(params):
+    n_components = params['n_components']
+    lda_cols = [f'lda_{i}' for i in range(1, n_components + 1)]
+
     _, _2, split_train_test = load_data_experiment_affine(params)
     p_anchor=params['p_anchor']
     for cv_i in ['cv_1', 'cv_2', 'cv_3', 'cv_4', 'cv_5']:
@@ -268,6 +309,8 @@ def affine_transform_data(params):
             all_indices = split_train_test[split_train_test['Patient_NO'] == p_n].index.intersection(x_df.index)
 
             model = SimpleAffineTransform()
+            model = SimpleMLPTransform(hidden_layer_sizes=(64,), max_iter=params['max_iter'])
+
 
             model.fit_transform(
                 X_anchor=x_df.loc[anchor_indices],
@@ -278,23 +321,10 @@ def affine_transform_data(params):
 
             X_affine_train=model.transform(x_df.loc[all_indices])
 
-            """
-            model.plot_affine_alignment(
-                X_anchor=x_df[['lda_1', 'lda_2']].loc[anchor_indices],
-                y_anchor=Y['level'].loc[anchor_indices],
-                X_subject=x_df[['lda_1', 'lda_2']].loc[train_indices],
-                y_subject=Y['level'].loc[train_indices],
-                X_subject_test=model.transform(x_df.loc[test_indices]),
-                y_subject_test=Y['level'].loc[test_indices],
-                title=f"Affine Transform | Patient {p_n}"
-            )
-            """
-
-
-            X_after_affine.loc[all_indices, ['lda_1', 'lda_2']] = X_affine_train.values
+            X_after_affine.loc[all_indices, lda_cols] = X_affine_train.values
 
         all_anchor_indices = split_train_test[split_train_test['Patient_NO'] == p_anchor].index.intersection(x_df.index)
-        X_after_affine.loc[all_anchor_indices, ['lda_1', 'lda_2']] = x_df.loc[all_anchor_indices].values
+        X_after_affine.loc[all_anchor_indices, lda_cols] = x_df.loc[all_anchor_indices].values
 
         Y_after_affine.to_parquet(
             PROCESSED_DATA_DIR + r'/target_min_diff' + str(params['min_diff']) + 'max_diff' + str(
@@ -365,8 +395,8 @@ def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilist
                       remove_level_Option, type=['everyone'], title="probabilistic")
 
         elif experiment_type == 'affine':
-            save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option, type=['everyone'],add_3_class=True, title="affine")
-            split_train_test(type=['affine'])
+            # save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option, type=['everyone'],add_3_class=True, title="affine")
+            # split_train_test(type=['affine'])
             dimensional_reduction_LDA(params)
             affine_transform_data(params)
 

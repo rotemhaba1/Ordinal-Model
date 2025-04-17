@@ -231,7 +231,10 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
                 evaluation_logger.error(f"Error evaluating experiment {experiment_id}: {e}")
 
     results_df = pd.DataFrame(results)
-    return experiments_to_update.merge(results_df, on="index", how="left")
+    if results_df.empty:
+        return  experiments_to_update
+    else:
+        return experiments_to_update.merge(results_df, on="index", how="left")
 
 def evaluate_experiments_prob(experiments_to_update, predict_dir,Patients_level_3=['']):
     results = []
@@ -359,8 +362,10 @@ def summary_results_affine(result_path,summary_path):
     summary_df=pd.read_excel(summary_path)
     summary_df['params2'] = summary_df['params'].apply(ast.literal_eval)
 
-    summary_df['p_anchor']=summary_df['params2'].apply(lambda x: x['p_anchor'])
-    summary_df['affine_transform'] = summary_df['params2'].apply(lambda x: x['affine_transform'])
+    summary_df['p_anchor'] = summary_df['params2'].apply(lambda x: x.get('p_anchor') if isinstance(x, dict) else None)
+    summary_df['affine_transform'] = summary_df['params2'].apply(
+        lambda x: x.get('affine_transform') if isinstance(x, dict) else None
+    )
     selected_columns = ['params','model','affine_transform','p_anchor', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
                         'f1_weighted_avg', 'sensitivity_weighted_avg','auc_class_3','auc_class_2','auc_class_1']
     filtered_df = summary_df[selected_columns]

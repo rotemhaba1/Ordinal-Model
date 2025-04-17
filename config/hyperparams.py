@@ -50,6 +50,8 @@ param_grids = {
 
     "AdaBoost": {},
 
+    "catboost": {},
+
     "XGBoost": {},
 
     "AdaBoost_Ordinal": {
@@ -75,15 +77,17 @@ param_ensemble={
 }
 
 params = {
-    "min_diff": 0.2,
+    "min_diff": 1.5,
     "max_diff": 9,
-    "min_length": 0.2,
+    "min_length": 1.5,
     "max_length": 8,
     "remove_level": ["Inhalation"],
     'downsampling': False,
-    'smote': True,
+    'smote': False,
     'dimensional_reduction':'LDA',
+    'n_components':100,
     'affine_transform':True,
+    'max_iter':100,
     'p_anchor':'P_7'
 }
 
