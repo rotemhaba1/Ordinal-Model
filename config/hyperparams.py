@@ -37,12 +37,12 @@ param_grids = {
 
     "RandomForest_Ordinal":{
         'WIGR_power':[0.2,1],
-        'criterion':['WIGR_EV','WIGR_mode','WIGR_min','WIGR_EV_fix','WIGR_max'],
+        'criterion':['WIGR_EV','WIGR_mode','WIGR_min','WIGR_max'],
         "class_weight": [ 'balanced',None]},
 
     "DecisionTrees_Ordinal": {
         'WIGR_power':[0.2,1],
-        'criterion':['WIGR_EV','WIGR_mode','WIGR_min','WIGR_EV_fix','WIGR_max'],
+        'criterion':['WIGR_EV','WIGR_mode','WIGR_min','WIGR_max'],
         "class_weight": [ 'balanced',None]},
 
     "DecisionTrees": {
@@ -84,10 +84,9 @@ params = {
     "remove_level": ["Inhalation"],
     'downsampling': False,
     'smote': False,
-    'dimensional_reduction':'LDA',
-    'n_components':100,
-    'affine_transform':True,
-    'max_iter':100,
+    'dimensional_reduction':'PLS3', # 'LDA' ,'PLS','NCA' , 'PLS2' , 'PLS3'
+    'dimensional_reduction_transform':True,
+    'affine_transform':False,
     'p_anchor':'P_7'
 }
 

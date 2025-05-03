@@ -366,10 +366,16 @@ def summary_results_affine(result_path,summary_path):
     summary_df['affine_transform'] = summary_df['params2'].apply(
         lambda x: x.get('affine_transform') if isinstance(x, dict) else None
     )
-    selected_columns = ['params','model','affine_transform','p_anchor', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
+    summary_df['dimensional_reduction_transform'] = summary_df['params2'].apply(
+        lambda x: x.get('dimensional_reduction_transform') if isinstance(x, dict) else None
+    )
+    summary_df['dimensional_reduction'] = summary_df['params2'].apply(
+        lambda x: x.get('dimensional_reduction') if isinstance(x, dict) else None
+    )
+    selected_columns = ['params','model','affine_transform','dimensional_reduction_transform','dimensional_reduction','p_anchor', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
                         'f1_weighted_avg', 'sensitivity_weighted_avg','auc_class_3','auc_class_2','auc_class_1']
     filtered_df = summary_df[selected_columns]
-    best_models_df = filtered_df.loc[filtered_df.groupby(['model','affine_transform','p_anchor'])['auc_weighted_avg'].idxmax()]
+    best_models_df = filtered_df.loc[filtered_df.groupby(['model','affine_transform','dimensional_reduction_transform','dimensional_reduction','p_anchor'])['auc_weighted_avg'].idxmax()]
     model_order = ['DecisionTrees', 'DecisionTrees_Ordinal', 'AdaBoost', 'AdaBoost_Ordinal',
                    'RandomForest', 'RandomForest_Ordinal', 'catboost', 'XGBoost', 'ensemble']
     available_models = [m for m in model_order if m in best_models_df['model'].values]

@@ -38,58 +38,58 @@ def load_data_experiment_mixed(params):
 
     return X,Y,split_train_test
 
+
 def load_data_experiment_affine(params):
-    # Define file paths
-    target_path = os.path.join(
-        PROCESSED_DATA_DIR,
-        f"target_min_diff{params['min_diff']}max_diff{params['max_diff']}"
+    # Build base filename with relevant parameters
+    base_filename = (
+        f"min_diff{params['min_diff']}max_diff{params['max_diff']}"
         f"min_length{params['min_length']}max_length{params['max_length']}"
         f"remove_level_{params['remove_level'][0]}affine.parquet"
     )
 
-    eeg_df_path = os.path.join(
-        PROCESSED_DATA_DIR,
-        f"EEG_df_min_diff{params['min_diff']}max_diff{params['max_diff']}"
-        f"min_length{params['min_length']}max_length{params['max_length']}"
-        f"remove_level_{params['remove_level'][0]}affine.parquet"
-    )
+    # Define full paths
+    target_path = os.path.join(PROCESSED_DATA_DIR, f"target_{base_filename}")
+    eeg_df_path = os.path.join(PROCESSED_DATA_DIR, f"EEG_df_{base_filename}")
+    split_train_test_path = os.path.join(SPLITS_DATA_DIR, f"split_train_test_{base_filename}")
 
-    split_train_test_path = os.path.join(
-        SPLITS_DATA_DIR,
-        f"split_train_test_min_diff{params['min_diff']}max_diff{params['max_diff']}"
-        f"min_length{params['min_length']}max_length{params['max_length']}"
-        f"remove_level_{params['remove_level'][0]}affine.parquet"
-    )
-
-    # Read parquet files
+    # Load parquet files
     Y = pd.read_parquet(target_path)
     X = pd.read_parquet(eeg_df_path)
     split_train_test = pd.read_parquet(split_train_test_path)
 
+    return X, Y, split_train_test
 
-    return X,Y,split_train_test
+def load_data_experiment_affine_dr(params, cv_i):
+    base_filename = (
+        f"min_diff{params['min_diff']}_max_diff{params['max_diff']}_"
+        f"min_length{params['min_length']}_max_length{params['max_length']}_"
+        f"{params['dimensional_reduction']}_{cv_i}.parquet"
+    )
+
+    X = pd.read_parquet(os.path.join(PROCESSED_DATA_DIR, f"EEG_df_{base_filename}"))
+    Y = pd.read_parquet(os.path.join(PROCESSED_DATA_DIR, f"target_{base_filename}"))
+
+    return X, Y
 
 def load_data_experiment_after_affine(params,cv_i):
 
     p_anchor=params['p_anchor']
     if params['affine_transform']:
-        ll=f'_{p_anchor}affine_{cv_i}'
+        ll=f'{p_anchor}_affine_{params["dimensional_reduction"]}_{cv_i}'
+    elif params['dimensional_reduction_transform']:
+        ll = f'{params["dimensional_reduction"]}_{cv_i}'
     else:
-        ll = f'outliers_lda_{cv_i}'
+        ll = f'{params["dimensional_reduction"]}_{cv_i}_outliers'
 
 
-    # Define file paths
-    target_path = os.path.join(
-        PROCESSED_DATA_DIR + r'/target_min_diff' + str(params['min_diff']) + 'max_diff' + str(
-            params['max_diff']) + 'min_length'
-        + str(params['min_length']) + 'max_length' + str(params['max_length']) + ll + '.parquet'
+    base_name = (
+        f"min_diff{params['min_diff']}_max_diff{params['max_diff']}_"
+        f"min_length{params['min_length']}_max_length{params['max_length']}_"
+        f"{ll}"
     )
 
-    eeg_df_path = os.path.join(
-        PROCESSED_DATA_DIR + r'/EEG_df_min_diff' + str(params['min_diff']) + 'max_diff' + str(
-            params['max_diff']) + 'min_length'
-        + str(params['min_length']) + 'max_length' + str(params['max_length']) + ll + '.parquet'
-    )
+    target_path = os.path.join(PROCESSED_DATA_DIR, f"target_{base_name}.parquet")
+    eeg_df_path = os.path.join(PROCESSED_DATA_DIR, f"EEG_df_{base_name}.parquet")
 
     split_train_test_path = os.path.join(
         SPLITS_DATA_DIR,
