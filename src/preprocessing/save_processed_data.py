@@ -244,6 +244,12 @@ def dimensional_reduction_function(params):
     elif method == 'NCA':
         n_components = 5
         model = NCA(n_components=n_components, random_state=0)
+    elif 'PLS_range_' in method :
+        n_components = int(method.replace('PLS_range_', ''))
+        if n_components>0:
+            model = PLSRegression(n_components=n_components)
+        else:
+            model =''
     else:
         raise ValueError(f"Unknown dimensionality reduction method: {method}")
 
@@ -269,13 +275,27 @@ def dimensional_reduction_preproses(params,model):
         for p_n in Y["Patient_NO"].unique().tolist():
             train_indices = split_train_test[(split_train_test[f'{cv_i}'] == True) & (split_train_test['Patient_NO']==p_n)].index
             p_indices= split_train_test[split_train_test['Patient_NO']==p_n].index
-            model.fit_transform(x_df.loc[train_indices], Y['level_int'].loc[train_indices])
-            X_after_lda.loc[p_indices, [f'col_{i}' for i in range(1, n_components+1)]] = model.transform(x_df.loc[p_indices])
-            outliers_idx=clean_lda(X_after_lda.loc[p_indices],n_components=n_components)
-            X_after_lda = X_after_lda.drop(index=outliers_idx)
-            Y_after_lda = Y_after_lda.drop(index=outliers_idx)
-            X = X.drop(index=outliers_idx)
-            Y = Y.drop(index=outliers_idx)
+            if n_components>0:
+                model.fit_transform(x_df.loc[train_indices], Y['level_int'].loc[train_indices])
+                X_after_lda.loc[p_indices, [f'col_{i}' for i in range(1, n_components+1)]] = model.transform(x_df.loc[p_indices])
+                outliers_idx = clean_lda(X_after_lda.loc[p_indices], n_components=n_components)
+
+                outliers_to_remove = []
+                outliers_in_train = list(set(outliers_idx).intersection(train_indices))
+
+                for p_n_level in Y.loc[train_indices, "level_int"].unique().tolist():
+                    level_train_indices = Y.loc[train_indices][Y.loc[train_indices]['level_int'] == p_n_level].index
+                    level_outliers = list(set(outliers_in_train).intersection(level_train_indices))
+                    max_to_remove = int(0.3 * len(level_train_indices))
+                    outliers_to_remove.extend(level_outliers[:max_to_remove])
+
+                X_after_lda = X_after_lda.drop(index=outliers_idx)
+                Y_after_lda = Y_after_lda.drop(index=outliers_idx)
+                X = X.drop(index=outliers_idx)
+                Y = Y.drop(index=outliers_idx)
+            else:
+                X_after_lda.loc[p_indices, x_df.columns] = x_df.loc[p_indices]
+
 
         filename_base = (
             f"min_diff{params['min_diff']}_max_diff{params['max_diff']}_"
@@ -321,8 +341,12 @@ def affine_transform_data(params):
         X,Y=load_data_experiment_affine_dr(params, cv_i)
         #print(Y['level_int'].value_counts())
         n_components = sum('col_' in col for col in X.columns)
-        dr_cols = [f'lda_{i}' for i in range(1, n_components + 1)]
+
         x_df = X.drop(columns=[col for col in ["Patient_NO", 'Respiratory cycle'] if col in X.columns])
+        if n_components>0:
+            dr_cols = [f'lda_{i}' for i in range(1, n_components + 1)]
+        else:
+            dr_cols=x_df.columns
         X_after_affine = X[["Patient_NO", 'Respiratory cycle']]
         Y_after_affine = Y.copy()
         for p_n in Y["Patient_NO"].unique():
@@ -337,7 +361,7 @@ def affine_transform_data(params):
             all_indices = split_train_test[split_train_test['Patient_NO'] == p_n].index.intersection(x_df.index)
 
             model = SimpleAffineTransform()
-            model = SimpleMLPTransform(hidden_layer_sizes=(64,), max_iter=100)
+            model = SimpleMLPTransform(hidden_layer_sizes=(64,), max_iter=1000)
 
 
             model.fit_transform(

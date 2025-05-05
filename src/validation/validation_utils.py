@@ -110,6 +110,15 @@ def predict_ensemble(experiment_params,predict_dir,p_i=''):
 
     return df
 
+def add_stats(metric_list, name, ll):
+    mean = np.mean(metric_list)
+    std = np.std(metric_list)
+    cv = 100 * std / mean if mean != 0 else 0
+    ll[f"{name}_std"] = std
+    ll[f"{name}_cv_percent"] = cv
+
+    return ll
+
 def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=['']):
     results = []
     name_p = '' if Patients_level_3[0]=='' else '_P'
@@ -213,6 +222,17 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
                         "f1_weighted_avg": np.mean(f1_weighted_scores),
                         "sensitivity_avg": np.mean(sensitivity_avg_scores),
                         "sensitivity_weighted_avg": np.mean(sensitivity_weighted_scores),}
+
+                    ll = add_stats(auc_avg_scores, "auc_avg", ll)
+                    ll = add_stats(auc_weighted_scores, "auc_weighted", ll)
+                    ll = add_stats(mse_avg_scores, "mse", ll)
+                    ll = add_stats(accuracy_avg_scores, "accuracy_avg", ll)
+                    ll = add_stats(accuracy_weighted_scores, "accuracy_weighted", ll)
+                    ll = add_stats(f1_avg_scores, "f1_avg", ll)
+                    ll = add_stats(f1_weighted_scores, "f1_weighted", ll)
+                    ll = add_stats(sensitivity_avg_scores, "sensitivity_avg", ll)
+                    ll = add_stats(sensitivity_weighted_scores, "sensitivity_weighted", ll)
+
                     for i in class_list:
                         ll[f'auc_class_{i}']=np.mean(metrics_scores["auc"][i]) if metrics_scores["auc"][i] else None
                         ll[f'mse_class_{i}'] = np.mean(metrics_scores["mse"][i]) if metrics_scores["mse"][i] else None
@@ -220,6 +240,7 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
                         ll[f'f1_class_{i}'] = np.mean(metrics_scores["f1"][i]) if metrics_scores["f1"][i] else None
                         ll[f'sensitivity_class_{i}'] = np.mean(metrics_scores["sensitivity"][i]) if metrics_scores["sensitivity"][i] else None
                         ll[f'num_samples_class_{i}'] = num_samples[i]
+
 
 
                     results.append(ll)
@@ -372,8 +393,22 @@ def summary_results_affine(result_path,summary_path):
     summary_df['dimensional_reduction'] = summary_df['params2'].apply(
         lambda x: x.get('dimensional_reduction') if isinstance(x, dict) else None
     )
-    selected_columns = ['params','model','affine_transform','dimensional_reduction_transform','dimensional_reduction','p_anchor', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
-                        'f1_weighted_avg', 'sensitivity_weighted_avg','auc_class_3','auc_class_2','auc_class_1']
+    summary_df['number_dimensional']=summary_df['dimensional_reduction'].str.extract(r'(\d+)$').astype(int)
+    summary_df['type'] = summary_df.apply(
+        lambda row: 'DR_AFFINE' if row['affine_transform'] and row['dimensional_reduction_transform']
+        else 'AFFINE' if row['affine_transform']
+        else 'DR' if row['dimensional_reduction_transform']
+        else 'None',
+        axis=1
+    )
+    selected_columns = ['params','model','affine_transform','dimensional_reduction_transform','dimensional_reduction','number_dimensional','type'
+        ,'p_anchor'
+        , 'auc_weighted_avg','auc_weighted_std','auc_weighted_cv_percent'
+        , 'mse_avg','mse_std','mse_cv_percent'
+        , 'accuracy_weighted_avg','accuracy_weighted_std','accuracy_weighted_cv_percent'
+        , 'f1_weighted_avg','f1_weighted_std','f1_weighted_cv_percent'
+        , 'sensitivity_weighted_avg','sensitivity_weighted_std','sensitivity_weighted_cv_percent'
+        ,'auc_class_3','auc_class_2','auc_class_1','total_time']
     filtered_df = summary_df[selected_columns]
     best_models_df = filtered_df.loc[filtered_df.groupby(['model','affine_transform','dimensional_reduction_transform','dimensional_reduction','p_anchor'])['auc_weighted_avg'].idxmax()]
     model_order = ['DecisionTrees', 'DecisionTrees_Ordinal', 'AdaBoost', 'AdaBoost_Ordinal',

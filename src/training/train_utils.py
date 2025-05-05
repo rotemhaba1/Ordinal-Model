@@ -398,7 +398,7 @@ def get_index_step_2(params, experiment, excel_path):
 def get_experiment_step_1(excel_path):
     return  pd.read_excel(excel_path.replace('_step_2', ""))
 
-def save_index(new_index, params, experiment, experiment_tracking_path):
+def save_index(new_index, params, experiment, experiment_tracking_path,end_time):
     params_str = str(params)
 
 
@@ -406,7 +406,8 @@ def save_index(new_index, params, experiment, experiment_tracking_path):
         "index": new_index,
         "params": params_str,
         "experiment": experiment,
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        'total_time':end_time
     }])
 
     if os.path.exists(experiment_tracking_path):

@@ -235,8 +235,9 @@ def train(experiment_type,params,Patients_level_3,retrain=True):
         raise ValueError("Invalid methodology selected")
 
     end_time = time.time()
+    elapsed_time = end_time - start_time
     training_logger.debug(f"Training completed in {end_time - start_time:.2f} seconds.")
-    save_index(experiment_id, params, experiment_type, experiment_tracking_path)
+    save_index(experiment_id, params, experiment_type, experiment_tracking_path,elapsed_time)
     training_logger.debug(f"Model saved successfully: {experiment_tracking_path}")
 
 
