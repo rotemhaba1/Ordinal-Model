@@ -32,6 +32,6 @@ def log_experiment(logger, experiment_type, experiment_id, model, combo):
 
 training_logger = setup_logger("training", "logs/training.log", logging.INFO)
 preprocessing_logger = setup_logger("preprocessing", "logs/preprocessing.log", logging.INFO)
-evaluation_logger = setup_logger("evaluation", "logs/evaluation.log", logging.WARNING)
+evaluation_logger = setup_logger("evaluation", "logs/evaluation.log", logging.INFO)
 
 

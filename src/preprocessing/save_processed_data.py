@@ -19,6 +19,8 @@ from sklearn.neighbors import NeighborhoodComponentsAnalysis as NCA
 from sklearn.decomposition import PCA
 import numpy as np
 from src.preprocessing.extension_PLS import PLSCorePoints
+import time
+
 
 def get_pca_lda_pipeline(X, y, n_pca_components=10, lda_components_requested=2, use_shrinkage=True):
     n_classes = len(np.unique(y))
@@ -254,10 +256,11 @@ def dimensional_reduction_function(params):
         raise ValueError(f"Unknown dimensionality reduction method: {method}")
 
     params['n_components'] = n_components
-    dimensional_reduction_preproses(params, model)
+    return dimensional_reduction_preproses(params, model)
 
 
 def dimensional_reduction_preproses(params,model):
+    start_time = time.time()
     n_components=params['n_components']
     for cv_i in ['cv_1', 'cv_2', 'cv_3', 'cv_4', 'cv_5']:
         X, Y, split_train_test = load_data_experiment_affine(params)
@@ -275,27 +278,28 @@ def dimensional_reduction_preproses(params,model):
         for p_n in Y["Patient_NO"].unique().tolist():
             train_indices = split_train_test[(split_train_test[f'{cv_i}'] == True) & (split_train_test['Patient_NO']==p_n)].index
             p_indices= split_train_test[split_train_test['Patient_NO']==p_n].index
-            if n_components>0:
-                model.fit_transform(x_df.loc[train_indices], Y['level_int'].loc[train_indices])
-                X_after_lda.loc[p_indices, [f'col_{i}' for i in range(1, n_components+1)]] = model.transform(x_df.loc[p_indices])
-                outliers_idx = clean_lda(X_after_lda.loc[p_indices], n_components=n_components)
 
-                outliers_to_remove = []
-                outliers_in_train = list(set(outliers_idx).intersection(train_indices))
+            model.fit_transform(x_df.loc[train_indices], Y['level_int'].loc[train_indices])
+            X_after_lda.loc[p_indices, [f'col_{i}' for i in range(1, n_components+1)]] = model.transform(x_df.loc[p_indices])
+            outliers_idx = clean_lda(X_after_lda.loc[p_indices], n_components=n_components)
 
-                for p_n_level in Y.loc[train_indices, "level_int"].unique().tolist():
-                    level_train_indices = Y.loc[train_indices][Y.loc[train_indices]['level_int'] == p_n_level].index
-                    level_outliers = list(set(outliers_in_train).intersection(level_train_indices))
-                    max_to_remove = int(0.3 * len(level_train_indices))
-                    outliers_to_remove.extend(level_outliers[:max_to_remove])
+            outliers_to_remove = []
+            outliers_in_train = list(set(outliers_idx).intersection(train_indices))
 
-                X_after_lda = X_after_lda.drop(index=outliers_idx)
-                Y_after_lda = Y_after_lda.drop(index=outliers_idx)
-                X = X.drop(index=outliers_idx)
-                Y = Y.drop(index=outliers_idx)
-            else:
-                X_after_lda.loc[p_indices, x_df.columns] = x_df.loc[p_indices]
+            for p_n_level in Y.loc[train_indices, "level_int"].unique().tolist():
+                level_train_indices = Y.loc[train_indices][Y.loc[train_indices]['level_int'] == p_n_level].index
+                level_outliers = list(set(outliers_in_train).intersection(level_train_indices))
+                max_to_remove = int(0.3 * len(level_train_indices))
+                outliers_to_remove.extend(level_outliers[:max_to_remove])
 
+            X_after_lda = X_after_lda.drop(index=outliers_to_remove)
+            Y_after_lda = Y_after_lda.drop(index=outliers_to_remove)
+            X = X.drop(index=outliers_to_remove)
+            Y = Y.drop(index=outliers_to_remove)
+
+
+        end_time = time.time()
+        elapsed_seconds = end_time - start_time
 
         filename_base = (
             f"min_diff{params['min_diff']}_max_diff{params['max_diff']}_"
@@ -303,6 +307,7 @@ def dimensional_reduction_preproses(params,model):
             f"{params['dimensional_reduction']}_{cv_i}"
         )
 
+        
         Y_after_lda.to_parquet(
             f"{PROCESSED_DATA_DIR}/target_{filename_base}.parquet",
             engine='pyarrow', compression='snappy'
@@ -323,6 +328,9 @@ def dimensional_reduction_preproses(params,model):
             engine='pyarrow', compression='snappy'
         )
 
+
+        return elapsed_seconds
+
 def learn_affine(source, target):
     ones = np.ones((source.shape[0], 1))
     X_ext = np.hstack([source, ones])
@@ -333,34 +341,24 @@ def learn_affine(source, target):
 
 
 def affine_transform_data(params):
-
-
+    start_time = time.time()
     _, _2, split_train_test = load_data_experiment_affine(params)
     p_anchor=params['p_anchor']
     for cv_i in ['cv_1', 'cv_2', 'cv_3', 'cv_4', 'cv_5']:
         X,Y=load_data_experiment_affine_dr(params, cv_i)
-        #print(Y['level_int'].value_counts())
         n_components = sum('col_' in col for col in X.columns)
-
         x_df = X.drop(columns=[col for col in ["Patient_NO", 'Respiratory cycle'] if col in X.columns])
-        if n_components>0:
-            dr_cols = [f'lda_{i}' for i in range(1, n_components + 1)]
-        else:
-            dr_cols=x_df.columns
+        dr_cols = [f'lda_{i}' for i in range(1, n_components + 1)]
         X_after_affine = X[["Patient_NO", 'Respiratory cycle']]
         Y_after_affine = Y.copy()
         for p_n in Y["Patient_NO"].unique():
             if p_n == p_anchor:
                 continue
             anchor_indices = split_train_test[(split_train_test[f'{cv_i}'] == True) & (split_train_test['Patient_NO']==p_anchor)].index.intersection(x_df.index)
-
             train_indices = split_train_test[(split_train_test[f'{cv_i}'] == True) & (split_train_test['Patient_NO']==p_n)].index.intersection(x_df.index)
-
-            test_indices = split_train_test[(split_train_test[f'{cv_i}'] == False) & (split_train_test['Patient_NO']==p_n)].index.intersection(x_df.index)
-
             all_indices = split_train_test[split_train_test['Patient_NO'] == p_n].index.intersection(x_df.index)
 
-            model = SimpleAffineTransform()
+            #model = SimpleAffineTransform()
             model = SimpleMLPTransform(hidden_layer_sizes=(64,), max_iter=1000)
 
 
@@ -372,11 +370,13 @@ def affine_transform_data(params):
             )
 
             X_affine_train=model.transform(x_df.loc[all_indices])
-
             X_after_affine.loc[all_indices, dr_cols] = X_affine_train.values
 
         all_anchor_indices = split_train_test[split_train_test['Patient_NO'] == p_anchor].index.intersection(x_df.index)
         X_after_affine.loc[all_anchor_indices, dr_cols] = x_df.loc[all_anchor_indices].values
+
+        end_time = time.time()
+        elapsed_seconds = end_time - start_time
 
         filename_base = (
             f"min_diff{params['min_diff']}_max_diff{params['max_diff']}_"
@@ -393,6 +393,9 @@ def affine_transform_data(params):
             f"{PROCESSED_DATA_DIR}/EEG_df_{filename_base}.parquet",
             engine='pyarrow', compression='snappy'
         )
+
+        return elapsed_seconds
+
 
 
 
@@ -434,6 +437,9 @@ def split_train_test(Patients=[],type=['everyone','independent','affine']):
             engine='pyarrow', compression='snappy', index=False
         )
 
+def save_time(results):
+    save_path = os.path.join(PROCESSED_DATA_DIR, "dimensional_reduction_times.xlsx")
+    pd.DataFrame(results).to_excel(save_path, index=False)
 
 def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilistic']):
     Patients, Patients_level_3 = patient_info()
@@ -462,8 +468,9 @@ def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilist
         elif experiment_type == 'affine':
             #save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option, type=['everyone'],add_3_class=True, title="affine")
             #split_train_test(type=['affine'])
-            dimensional_reduction_function(params)
-            affine_transform_data(params)
+            dr_time= dimensional_reduction_function(params)
+            affine_time= affine_transform_data(params)
+            return dr_time,affine_time
 
 
 

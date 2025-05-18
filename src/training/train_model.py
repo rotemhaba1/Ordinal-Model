@@ -61,8 +61,21 @@ def train_experiment_mixed(params,experiment_id,path):
 def train_experiment_affine(params,experiment_id,path):
     cv_probabilities = {}
     for cv_i in ['cv_1'  , 'cv_2',   'cv_3' ,  'cv_4',   'cv_5']:
-        training_logger.info(f"Start : {cv_i}/cv_5")
-        X, Y, split_train_test = load_data_experiment_after_affine(params, cv_i)
+        #training_logger.info(f"Start : {cv_i}/cv_5")
+        #X, Y, split_train_test = load_data_experiment_after_affine(params, cv_i)
+
+        """ FULL_with_AFFINE"""
+        params_new=params.copy()
+        params['dimensional_reduction'] = params['dimensional_reduction'].replace('all_', '')
+        X, Y, split_train_test = load_data_experiment_after_affine(params_new, cv_i)
+        params_new['dimensional_reduction_transform']=False
+        params_new['affine_transform']=False
+        X_, Y_, split_train_test_ = load_data_experiment_after_affine(params_new, cv_i)
+        X_ = X_.drop(columns=['Patient_NO', 'Respiratory cycle'], errors='ignore')
+        X = pd.concat([X, X_], axis=1)
+
+
+
         train_indices = split_train_test[split_train_test[cv_i] == True].index.intersection(X.index)
         test_indices = split_train_test[split_train_test[cv_i] == False].index.intersection(X.index)
         X_train, X_test = X.loc[train_indices], X.loc[test_indices]

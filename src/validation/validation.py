@@ -25,9 +25,15 @@ def run_pipeline_validation(experiment_types=['mixed', 'independent']):
             experiments_to_update = find_experiments_to_update(EXPERIMENT_TRACKING_AFFINE,
                                                                EXPERIMENT_SUMMARY_AFFINE_PATH, param_ensemble)
             if experiments_to_update.__len__()>0:
-                experiments_valid = evaluate_experiments(experiments_to_update, PREDICT_TRACKING_AFFINE_PATH)
-                update_experiments_file(experiments_valid, EXPERIMENT_SUMMARY_AFFINE_PATH)
+                experiments_valid,auc_per_fold_df= evaluate_experiments(experiments_to_update, PREDICT_TRACKING_AFFINE_PATH)
+                update_experiments_file(experiments_valid,auc_per_fold_df, EXPERIMENT_SUMMARY_AFFINE_PATH)
+
             summary_results_affine(RESULTS_DIR, EXPERIMENT_SUMMARY_AFFINE_PATH)
+            knee_point(RESULTS_DIR)
+            t_test_point(RESULTS_DIR,EXPERIMENT_SUMMARY_AFFINE_PATH,on='auc_avg')
+            t_test_point(RESULTS_DIR, EXPERIMENT_SUMMARY_AFFINE_PATH,on='auc_weighted')
+            patient_auc(RESULTS_DIR,on='auc_avg')
+            patient_auc(RESULTS_DIR, on='auc_weighted')
 
         """ 
         elif experiment_type == "probabilistic_step_2": 

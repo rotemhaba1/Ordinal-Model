@@ -66,6 +66,7 @@ param_grids = {
 
 
 
+
 param_ensemble={
 '1':{'model':"RandomForest_Ordinal",'combo':{'WIGR_power':0.2,'criterion':'WIGR_EV','class_weight':None}},
 '2':{'model':"RandomForest_Ordinal",'combo':{'WIGR_power':0.2,'criterion':'WIGR_EV','class_weight':None}},
@@ -84,8 +85,8 @@ params = {
     "remove_level": ["Inhalation"],
     'downsampling': False,
     'smote': False,
-    'dimensional_reduction':'PLS3', # 'LDA' ,'PLS','NCA' , 'PLS2' , 'PLS3'
-    'dimensional_reduction_transform':True,
+    'dimensional_reduction':'all_PLS_range_7', # 'LDA' ,'PLS','NCA' , 'PLS2' , 'PLS3' ,'all_PLS_range_7'
+    'dimensional_reduction_transform':False,
     'affine_transform':False,
     'p_anchor':'P_7'
 }
