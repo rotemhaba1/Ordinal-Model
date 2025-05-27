@@ -23,18 +23,51 @@ class SimpleMLPTransform:
         return core_indices
 
     def fit(self, X_anchor: pd.DataFrame, y_anchor: pd.Series,
-                  X_subject: pd.DataFrame, y_subject: pd.Series):
+                  X_subject: pd.DataFrame, y_subject: pd.Series,affine_method):
         self.dim1 = min(X_anchor.shape[1], X_subject.shape[1])
         X_anchor = X_anchor.iloc[:, :self.dim1]
         X_subject = X_subject.iloc[:, :self.dim1]
 
         # Keep only core points
-        anchor_core_idx = self.get_core_points(X_anchor, y_anchor, percent=0.9)
-        subject_core_idx = self.get_core_points(X_subject, y_subject, percent=0.9)
-        X_anchor = X_anchor.loc[anchor_core_idx]
-        y_anchor = y_anchor.loc[anchor_core_idx]
-        X_subject = X_subject.loc[subject_core_idx]
-        y_subject = y_subject.loc[subject_core_idx]
+        anchor_core_idx_1 = self.get_core_points(X_anchor, y_anchor, percent=0.9)
+        subject_core_idx_1 = self.get_core_points(X_subject, y_subject, percent=0.9)
+
+        anchor_core_idx_2 = np.random.permutation(self.get_core_points(X_anchor, y_anchor, percent=0.1))
+        subject_core_idx_2 = np.random.permutation(self.get_core_points(X_subject, y_subject, percent=0.1))
+
+        anchor_core_idx_3 = np.random.permutation(self.get_core_points(X_anchor, y_anchor, percent=0.1))
+        subject_core_idx_3 = np.random.permutation(self.get_core_points(X_subject, y_subject, percent=0.1))
+
+
+        if affine_method:
+            X_anchor = pd.concat([
+                X_anchor.loc[anchor_core_idx_1],
+                X_anchor.loc[anchor_core_idx_2],
+                X_anchor.loc[anchor_core_idx_3]
+            ])
+            y_anchor = pd.concat([
+                y_anchor.loc[anchor_core_idx_1],
+                y_anchor.loc[anchor_core_idx_2],
+                y_anchor.loc[anchor_core_idx_3]
+            ])
+            X_subject = pd.concat([
+                X_subject.loc[subject_core_idx_1],
+                X_subject.loc[subject_core_idx_2],
+                X_subject.loc[subject_core_idx_3]
+            ])
+
+            y_subject = pd.concat([
+                y_subject.loc[subject_core_idx_1],
+                y_subject.loc[subject_core_idx_2],
+                y_subject.loc[subject_core_idx_3]
+            ])
+        else:
+            X_anchor = X_anchor.loc[anchor_core_idx_1]
+            y_anchor = y_anchor.loc[anchor_core_idx_1]
+            X_subject = X_subject.loc[subject_core_idx_1]
+            y_subject = y_subject.loc[subject_core_idx_1]
+
+
 
         p_list, q_list = [], []
         for label in y_anchor.unique():
@@ -73,6 +106,6 @@ class SimpleMLPTransform:
         X_transformed = self.model.predict(X.iloc[:, :self.dim1])
         return pd.DataFrame(X_transformed, index=X.index, columns=[f'lda_{i+1}' for i in range(self.dim1)])
 
-    def fit_transform(self, X_anchor, y_anchor, X_subject, y_subject):
-        self.fit(X_anchor, y_anchor, X_subject, y_subject)
+    def fit_transform(self, X_anchor, y_anchor, X_subject, y_subject,affine_method):
+        self.fit(X_anchor, y_anchor, X_subject, y_subject,affine_method)
         return self.transform(X_subject)

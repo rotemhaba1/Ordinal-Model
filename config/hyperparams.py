@@ -85,9 +85,10 @@ params = {
     "remove_level": ["Inhalation"],
     'downsampling': False,
     'smote': False,
-    'dimensional_reduction':'all_PLS_range_7', # 'LDA' ,'PLS','NCA' , 'PLS2' , 'PLS3' ,'all_PLS_range_7'
+    'dimensional_reduction':'PLS_range_7', # 'LDA' ,'PLS','NCA' , 'PLS2' , 'PLS3' ,'all_PLS_range_7'
+    'affine':'SMOTE',
     'dimensional_reduction_transform':False,
-    'affine_transform':False,
+    'affine_transform':True,
     'p_anchor':'P_7'
 }
 

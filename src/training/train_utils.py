@@ -75,7 +75,7 @@ def load_data_experiment_after_affine(params,cv_i):
 
     p_anchor=params['p_anchor']
     if params['affine_transform']:
-        ll=f'{p_anchor}_affine_{params["dimensional_reduction"]}_{cv_i}'
+        ll=f'{p_anchor}_affine_{params["dimensional_reduction"]}_affine_{params["affine"]}_{cv_i}'
     elif params['dimensional_reduction_transform']:
         ll = f'{params["dimensional_reduction"]}_{cv_i}'
     else:

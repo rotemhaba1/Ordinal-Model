@@ -366,7 +366,8 @@ def affine_transform_data(params):
                 X_anchor=x_df.loc[anchor_indices],
                 y_anchor=Y['level'].loc[anchor_indices],
                 X_subject=x_df.loc[train_indices],
-                y_subject=Y['level'].loc[train_indices]
+                y_subject=Y['level'].loc[train_indices],
+                affine_method=params['affine']
             )
 
             X_affine_train=model.transform(x_df.loc[all_indices])
@@ -381,7 +382,7 @@ def affine_transform_data(params):
         filename_base = (
             f"min_diff{params['min_diff']}_max_diff{params['max_diff']}_"
             f"min_length{params['min_length']}_max_length{params['max_length']}_"
-            f"{p_anchor}_affine_{params['dimensional_reduction']}_{cv_i}"
+            f"{p_anchor}_affine_{params['dimensional_reduction']}_affine_{params['affine']}_{cv_i}"
         )
 
         Y_after_affine.to_parquet(
@@ -394,7 +395,7 @@ def affine_transform_data(params):
             engine='pyarrow', compression='snappy'
         )
 
-        return elapsed_seconds
+    return elapsed_seconds
 
 
 
@@ -466,9 +467,10 @@ def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilist
                       remove_level_Option, type=['everyone'], title="probabilistic")
 
         elif experiment_type == 'affine':
+            dr_time, affine_time = '', ''
             #save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option, type=['everyone'],add_3_class=True, title="affine")
             #split_train_test(type=['affine'])
-            dr_time= dimensional_reduction_function(params)
+            #dr_time= dimensional_reduction_function(params)
             affine_time= affine_transform_data(params)
             return dr_time,affine_time
 

@@ -16,9 +16,9 @@ def run_pipeline_validation(experiment_types=['mixed', 'independent']):
         elif experiment_type == "independent":
             experiments_to_update = find_experiments_to_update(EXPERIMENT_TRACKING_INDEPENDENT_PATH,
                                                                EXPERIMENT_SUMMARY_INDEPENDENT_PATH, param_ensemble)
-            experiments_valid = evaluate_experiments(experiments_to_update, PREDICT_TRACKING_INDEPENDENT_PATH,
+            experiments_valid = evaluate_experiments_independet(experiments_to_update, PREDICT_TRACKING_INDEPENDENT_PATH,
                                                      Patients_level_3)
-            update_experiments_file(experiments_valid, EXPERIMENT_SUMMARY_INDEPENDENT_PATH)
+            update_experiments_file_independent(experiments_valid, EXPERIMENT_SUMMARY_INDEPENDENT_PATH)
             summary_results_independent(RESULTS_DIR, EXPERIMENT_SUMMARY_INDEPENDENT_PATH)
 
         elif experiment_type == "affine":
