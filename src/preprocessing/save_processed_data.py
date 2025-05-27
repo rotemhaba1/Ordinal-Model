@@ -468,10 +468,11 @@ def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilist
 
         elif experiment_type == 'affine':
             dr_time, affine_time = '', ''
-            #save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option, type=['everyone'],add_3_class=True, title="affine")
-            #split_train_test(type=['affine'])
-            #dr_time= dimensional_reduction_function(params)
+            save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option, type=['everyone'],add_3_class=True, title="affine")
+            split_train_test(type=['affine'])
+            dr_time= dimensional_reduction_function(params)
             affine_time= affine_transform_data(params)
+            affine_time_smote = affine_transform_data(params)
             return dr_time,affine_time
 
 

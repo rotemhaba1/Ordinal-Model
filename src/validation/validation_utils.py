@@ -595,7 +595,7 @@ def summary_results_affine(result_path,summary_path):
     summary_df['number_dimensional']=summary_df['dimensional_reduction'].str.extract(r'(\d+)$').astype(int)
     summary_df['type'] = summary_df.apply(
         lambda row:
-        'FULL_with_AFFINE' if 'all_PLS_range_' in row['dimensional_reduction']
+        'FULL_with_AFFINE' if 'FULL_with_AFFINE' in row['dimensional_reduction']
         else 'DR_AFFINE' if row['affine_transform'] and row['dimensional_reduction_transform']
         else 'AFFINE' if row['affine_transform']
         else 'DR' if row['dimensional_reduction_transform']
