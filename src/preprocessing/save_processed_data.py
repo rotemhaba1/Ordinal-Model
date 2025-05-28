@@ -273,6 +273,7 @@ def dimensional_reduction_preproses(params,model):
         x_df = X.drop(columns=[col for col in ["Patient_NO", 'Respiratory cycle'] if col in X.columns])
         X_after_lda = X[["Patient_NO", 'Respiratory cycle']]
         Y_after_lda = Y.copy()
+        X_after_lda = X_after_lda.copy()
         for i in range(1, n_components+1):
             X_after_lda.loc[:, f'col_{i}'] = np.nan
         for p_n in Y["Patient_NO"].unique().tolist():
@@ -329,7 +330,7 @@ def dimensional_reduction_preproses(params,model):
         )
 
 
-        return elapsed_seconds
+    return elapsed_seconds
 
 def learn_affine(source, target):
     ones = np.ones((source.shape[0], 1))
@@ -468,11 +469,13 @@ def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilist
 
         elif experiment_type == 'affine':
             dr_time, affine_time = '', ''
-            save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option, type=['everyone'],add_3_class=True, title="affine")
-            split_train_test(type=['affine'])
+            #save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option, type=['everyone'],add_3_class=True, title="affine")
+            #split_train_test(type=['affine'])
             dr_time= dimensional_reduction_function(params)
-            affine_time= affine_transform_data(params)
-            affine_time_smote = affine_transform_data(params)
+            params['affine'] = 'SMOTE'
+            affine_time_smote= affine_transform_data(params)
+            params['affine'] = 'regular'
+            affine_time = affine_transform_data(params)
             return dr_time,affine_time
 
 

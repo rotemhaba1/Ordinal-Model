@@ -1,0 +1,600 @@
+2025-05-28 11:30:22,467 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:30:22,673 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:30:22,733 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:30:22,733 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:30:22,733 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:30:22,764 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:30:22,822 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:30:22,823 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:31:26,557 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:31:26,764 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:31:26,823 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:31:26,824 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:31:26,824 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:31:26,845 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:31:26,879 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:31:26,879 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:32:29,552 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:32:29,751 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:32:29,795 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:32:29,795 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:32:29,795 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:32:29,809 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:32:29,832 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:32:29,832 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:33:33,761 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:33:33,991 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:33:34,063 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:33:34,064 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:33:34,064 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:33:34,080 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:33:34,104 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:33:34,105 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:34:40,536 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:34:40,733 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:34:40,779 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:34:40,780 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:34:40,780 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:34:40,795 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:34:40,818 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:34:40,819 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:35:46,651 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:35:46,860 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:35:46,903 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:35:46,904 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:35:46,904 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:35:46,918 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:35:46,941 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:35:46,941 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:36:55,037 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:36:55,213 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:36:55,255 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:36:55,255 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:36:55,255 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:36:55,269 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:36:55,290 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:36:55,290 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:38:04,531 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:38:04,794 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:38:04,852 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:38:04,852 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:38:04,853 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:38:04,872 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:38:04,904 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:38:04,905 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:39:15,462 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:39:15,740 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:39:15,800 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:39:15,800 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:39:15,800 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:39:15,820 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:39:15,853 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:39:15,854 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:40:27,524 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:40:27,794 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:40:27,853 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:40:27,854 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:40:27,854 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:40:27,873 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:40:27,906 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:40:27,906 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:41:40,760 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:41:41,029 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:41:41,086 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:41:41,086 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:41:41,086 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:41:41,108 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:41:41,139 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:41:41,139 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:42:55,161 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:42:55,433 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:42:55,493 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:42:55,493 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:42:55,493 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:42:55,508 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:42:55,538 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:42:55,539 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:44:12,770 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:44:12,987 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:44:13,045 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:44:13,045 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:44:13,045 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:44:13,069 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:44:13,100 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:44:13,101 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:45:31,298 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:45:31,573 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:45:31,635 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:45:31,635 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:45:31,636 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:45:31,656 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:45:31,688 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:45:31,688 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:46:51,473 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:46:51,742 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:46:51,797 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:46:51,798 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:46:51,799 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:46:51,815 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:46:51,847 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:46:51,847 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:48:13,535 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:48:13,802 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:48:13,864 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:48:13,865 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:48:13,865 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:48:13,880 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:48:13,918 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:48:13,918 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:49:37,297 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:49:37,537 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:49:37,589 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:49:37,589 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:49:37,589 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:49:37,607 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:49:37,635 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:49:37,635 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:51:02,490 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:51:02,750 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:51:02,805 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:51:02,805 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:51:02,806 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:51:02,826 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:51:02,856 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:51:02,856 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:52:31,717 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:52:31,958 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:52:32,043 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:52:32,043 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:52:32,043 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:52:32,061 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:52:32,095 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:52:32,095 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:54:01,552 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:54:01,819 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:54:01,878 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:54:01,879 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:54:01,879 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:54:01,898 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:54:01,930 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:54:01,930 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:55:33,724 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:55:33,914 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:55:34,015 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:55:34,015 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:55:34,016 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:55:34,040 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:55:34,087 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:55:34,087 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:57:06,072 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:57:06,286 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:57:06,336 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:57:06,337 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:57:06,337 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:57:06,353 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:57:06,384 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:57:06,384 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 11:58:40,369 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 11:58:40,668 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 11:58:40,728 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 11:58:40,729 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 11:58:40,729 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 11:58:40,749 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 11:58:40,783 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 11:58:40,783 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:00:18,525 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:00:18,894 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:00:18,972 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:00:18,972 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:00:18,972 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:00:18,998 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:00:19,044 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:00:19,044 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:01:57,380 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:01:57,606 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:01:57,657 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:01:57,657 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:01:57,658 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:01:57,674 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:01:57,699 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:01:57,699 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:03:37,637 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:03:37,867 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:03:37,915 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:03:37,915 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:03:37,915 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:03:37,929 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:03:37,952 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:03:37,952 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:05:19,914 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:05:20,114 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:05:20,163 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:05:20,163 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:05:20,163 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:05:20,180 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:05:20,206 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:05:20,206 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:07:05,517 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:07:05,788 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:07:05,846 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:07:05,846 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:07:05,846 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:07:05,861 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:07:05,888 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:07:05,888 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:08:55,938 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:08:56,171 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:08:56,213 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:08:56,213 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:08:56,213 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:08:56,227 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:08:56,249 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:08:56,249 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:10:48,581 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:10:48,827 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:10:48,872 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:10:48,872 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:10:48,872 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:10:48,887 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:10:48,911 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:10:48,912 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:12:39,883 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:12:40,054 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:12:40,092 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:12:40,092 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:12:40,092 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:12:40,105 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:12:40,127 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:12:40,127 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:14:29,560 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:14:29,744 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:14:29,810 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:14:29,810 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:14:29,811 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:14:29,843 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:14:29,878 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:14:29,878 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:16:24,292 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:16:24,516 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:16:24,600 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:16:24,600 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:16:24,600 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:16:24,615 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:16:24,642 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:16:24,642 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:18:20,939 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:18:21,220 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:18:21,284 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:18:21,285 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:18:21,285 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:18:21,302 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:18:21,336 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:18:21,336 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:20:20,107 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:20:20,509 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:20:20,599 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:20:20,600 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:20:20,600 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:20:20,623 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:20:20,658 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:20:20,658 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:22:17,244 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:22:17,478 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:22:17,525 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:22:17,525 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:22:17,525 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:22:17,542 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:22:17,570 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:22:17,570 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:24:17,356 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:24:17,630 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:24:17,688 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:24:17,688 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:24:17,689 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:24:17,707 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:24:17,738 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:24:17,738 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:26:20,710 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:26:20,945 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:26:20,992 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:26:20,992 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:26:20,992 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:26:21,010 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:26:21,041 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:26:21,041 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:28:24,969 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:28:25,194 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:28:25,233 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:28:25,233 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:28:25,234 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:28:25,247 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:28:25,270 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:28:25,270 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:30:32,354 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:30:32,607 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:30:32,713 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:30:32,713 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:30:32,714 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:30:32,734 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:30:32,766 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:30:32,766 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:32:46,415 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:32:46,667 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:32:46,716 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:32:46,716 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:32:46,716 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:32:46,732 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:32:46,757 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:32:46,758 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:34:55,849 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:34:56,121 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:34:56,179 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:34:56,179 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:34:56,179 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:34:56,203 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:34:56,239 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:34:56,239 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:37:06,283 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:37:06,462 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:37:06,503 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:37:06,503 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:37:06,503 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:37:06,517 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:37:06,539 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:37:06,539 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:39:17,695 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:39:17,905 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:39:17,947 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:39:17,947 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:39:17,947 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:39:17,961 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:39:17,984 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:39:17,984 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:41:41,328 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:41:41,523 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:41:41,566 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:41:41,566 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:41:41,566 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:41:41,582 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:41:41,607 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:41:41,607 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:44:12,036 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:44:12,409 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:44:12,483 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:44:12,484 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:44:12,484 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:44:12,501 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:44:12,539 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:44:12,539 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:46:42,742 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:46:43,028 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:46:43,114 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:46:43,114 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:46:43,114 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:46:43,131 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:46:43,173 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:46:43,174 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:49:17,907 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:49:18,244 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:49:18,310 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:49:18,310 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:49:18,310 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:49:18,336 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:49:18,377 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:49:18,377 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:51:41,268 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:51:41,542 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:51:41,601 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:51:41,601 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:51:41,602 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:51:41,624 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:51:41,658 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:51:41,658 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:54:06,116 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:54:06,389 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:54:06,442 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:54:06,443 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:54:06,443 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:54:06,460 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:54:06,489 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:54:06,489 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:56:28,730 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:56:28,966 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:56:29,019 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:56:29,019 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:56:29,019 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:56:29,039 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:56:29,072 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:56:29,072 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 12:58:52,177 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 12:58:52,391 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 12:58:52,434 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 12:58:52,434 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 12:58:52,434 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 12:58:52,448 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 12:58:52,475 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 12:58:52,475 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:01:16,744 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:01:17,010 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:01:17,069 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:01:17,069 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:01:17,069 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:01:17,093 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:01:17,122 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:01:17,122 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:03:46,801 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:03:47,036 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:03:47,086 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:03:47,086 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:03:47,086 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:03:47,102 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:03:47,128 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:03:47,128 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:06:16,143 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:06:16,360 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:06:16,406 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:06:16,407 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:06:16,407 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:06:16,428 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:06:16,455 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:06:16,456 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:08:46,836 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:08:47,060 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:08:47,108 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:08:47,108 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:08:47,108 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:08:47,124 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:08:47,152 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:08:47,152 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:11:19,314 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:11:19,496 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:11:19,537 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:11:19,537 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:11:19,537 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:11:19,550 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:11:19,571 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:11:19,572 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:13:53,437 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:13:53,646 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:13:53,689 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:13:53,690 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:13:53,690 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:13:53,705 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:13:53,728 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:13:53,728 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:16:26,886 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:16:27,166 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:16:27,223 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:16:27,223 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:16:27,223 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:16:27,241 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:16:27,269 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:16:27,270 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:19:05,953 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:19:06,222 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:19:06,281 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:19:06,281 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:19:06,282 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:19:06,301 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:19:06,331 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:19:06,332 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:21:45,593 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:21:45,824 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:21:45,875 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:21:45,875 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:21:45,875 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:21:45,892 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:21:45,920 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:21:45,920 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:24:25,994 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:24:26,230 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:24:26,277 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:24:26,277 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:24:26,277 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:24:26,292 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:24:26,316 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:24:26,317 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:27:07,250 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:27:07,427 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:27:07,469 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:27:07,469 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:27:07,470 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:27:07,484 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:27:07,505 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:27:07,505 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:29:47,934 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:29:48,207 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:29:48,265 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:29:48,265 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:29:48,265 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:29:48,289 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:29:48,319 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:29:48,319 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:32:27,462 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:32:27,609 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:32:27,641 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:32:27,642 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:32:27,642 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:32:27,653 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:32:27,672 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:32:27,672 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:34:16,441 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:34:16,583 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:34:16,614 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:34:16,614 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:34:16,614 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:34:16,625 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:34:16,641 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:34:16,641 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:36:05,860 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:36:06,004 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:36:06,034 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:36:06,035 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:36:06,035 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:36:06,045 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:36:06,063 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:36:06,063 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:37:57,286 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:37:57,433 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:37:57,466 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:37:57,466 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:37:57,466 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:37:57,477 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:37:57,494 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:37:57,495 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:39:49,090 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:39:49,239 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:39:49,272 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:39:49,272 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:39:49,272 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:39:49,283 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:39:49,300 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:39:49,300 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:41:41,728 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:41:41,874 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:41:41,904 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:41:41,904 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:41:41,904 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:41:41,914 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:41:41,931 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:41:41,931 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:43:34,568 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:43:34,710 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:43:34,745 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:43:34,745 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:43:34,745 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:43:34,755 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:43:34,772 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:43:34,772 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:45:29,327 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:45:29,478 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:45:29,510 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:45:29,510 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:45:29,510 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:45:29,519 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:45:29,537 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:45:29,537 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:47:25,818 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:47:25,965 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:47:25,996 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:47:25,997 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:47:25,997 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:47:26,007 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:47:26,024 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:47:26,024 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:49:23,205 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:49:23,351 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:49:23,383 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:49:23,383 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:49:23,383 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:49:23,393 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:49:23,410 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:49:23,410 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
+2025-05-28 13:51:20,301 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P8\challenge_test_report.xlsx
+2025-05-28 13:51:20,455 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P36\challenge_test_report.xlsx
+2025-05-28 13:51:20,488 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P43\challenge_test_report.xlsx
+2025-05-28 13:51:20,488 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P44\challenge_test_report.xlsx
+2025-05-28 13:51:20,488 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P45\challenge_test_report.xlsx
+2025-05-28 13:51:20,499 - CRITICAL - File not found: C:\Users\user\OneDrive - Bar-Ilan University - Students\PHD Rotem Haba\Ordinal-Model\data\raw\P48\challenge_test_report.xlsx
+2025-05-28 13:51:20,517 - INFO - All patients: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
+2025-05-28 13:51:20,517 - INFO - Patients with -20% FEV1 ranges: [1, 5, 6, 7, 10, 17, 18, 32, 47, 51]
