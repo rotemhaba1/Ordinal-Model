@@ -39,7 +39,7 @@ class SimpleMLPTransform:
         subject_core_idx_3 = np.random.permutation(self.get_core_points(X_subject, y_subject, percent=0.1))
 
 
-        if affine_method:
+        if affine_method=='SMOTE':
             X_anchor = pd.concat([
                 X_anchor.loc[anchor_core_idx_1],
                 X_anchor.loc[anchor_core_idx_2],
@@ -61,6 +61,16 @@ class SimpleMLPTransform:
                 y_subject.loc[subject_core_idx_2],
                 y_subject.loc[subject_core_idx_3]
             ])
+            """
+            q = np.vstack(q_list)
+            q = np.vstack(q_list)
+
+            self.scaler_q = StandardScaler()
+            self.scaler_p = StandardScaler()
+            q_scaled = self.scaler_q.fit_transform(q)
+            p_scaled = self.scaler_p.fit_transform(p)
+           
+            """
         else:
             X_anchor = X_anchor.loc[anchor_core_idx_1]
             y_anchor = y_anchor.loc[anchor_core_idx_1]

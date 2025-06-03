@@ -66,7 +66,6 @@ param_grids = {
 
 
 
-
 param_ensemble={
 '1':{'model':"RandomForest_Ordinal",'combo':{'WIGR_power':0.2,'criterion':'WIGR_EV','class_weight':None}},
 '2':{'model':"RandomForest_Ordinal",'combo':{'WIGR_power':0.2,'criterion':'WIGR_EV','class_weight':None}},

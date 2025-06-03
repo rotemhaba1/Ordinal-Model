@@ -64,7 +64,7 @@ def train_experiment_affine(params,experiment_id,path):
         #training_logger.info(f"Start : {cv_i}/cv_5")
         if 'FULL_with_AFFINE_' in params['dimensional_reduction']:
             params_new = params.copy()
-            params['dimensional_reduction'] = params['dimensional_reduction'].replace('all_', '')
+            params_new['dimensional_reduction'] = params_new['dimensional_reduction'].replace('FULL_with_AFFINE_PLS_range_', 'PLS_range_')
             X, Y, split_train_test = load_data_experiment_after_affine(params_new, cv_i)
             params_new['dimensional_reduction_transform'] = False
             params_new['affine_transform'] = False
@@ -266,6 +266,7 @@ def run_experiment(experiment_type, params,Patients, Patients_level_3,param_comb
         for combo in combinations:
             params['model'] = model
             params['combo'] = combo
+
             try:
                 train(experiment_type, params, Patients_level_3, retrain)
             except Exception as e:

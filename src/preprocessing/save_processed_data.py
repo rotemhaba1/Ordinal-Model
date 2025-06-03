@@ -360,7 +360,7 @@ def affine_transform_data(params):
             all_indices = split_train_test[split_train_test['Patient_NO'] == p_n].index.intersection(x_df.index)
 
             #model = SimpleAffineTransform()
-            model = SimpleMLPTransform(hidden_layer_sizes=(64,), max_iter=1000)
+            model = SimpleMLPTransform(hidden_layer_sizes=(64,), max_iter=2000)
 
 
             model.fit_transform(
@@ -471,9 +471,9 @@ def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilist
             dr_time, affine_time = '', ''
             #save_data(Patients_level_3, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,remove_level_Option, type=['everyone'],add_3_class=True, title="affine")
             #split_train_test(type=['affine'])
-            dr_time= dimensional_reduction_function(params)
-            params['affine'] = 'SMOTE'
-            affine_time_smote= affine_transform_data(params)
+            #dr_time= dimensional_reduction_function(params)
+            #params['affine'] = 'SMOTE'
+            #affine_time_smote= affine_transform_data(params)
             params['affine'] = 'regular'
             affine_time = affine_transform_data(params)
             return dr_time,affine_time
