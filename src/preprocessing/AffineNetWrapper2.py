@@ -71,11 +71,22 @@ class SimpleMLPTransform:
             p_scaled = self.scaler_p.fit_transform(p)
            
             """
+
         else:
             X_anchor = X_anchor.loc[anchor_core_idx_1]
             y_anchor = y_anchor.loc[anchor_core_idx_1]
             X_subject = X_subject.loc[subject_core_idx_1]
             y_subject = y_subject.loc[subject_core_idx_1]
+            if  affine_method=='synthetic':
+                index_synthetic = X_anchor.index
+                columns_synthetic = X_anchor.columns
+                n_features = X_anchor.shape[1]
+
+                X_anchor = pd.DataFrame(
+                    np.repeat(y_anchor.values.reshape(-1, 1), n_features, axis=1),
+                    index=index_synthetic,
+                    columns=columns_synthetic
+                )
 
 
 

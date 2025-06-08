@@ -353,21 +353,21 @@ def affine_transform_data(params):
         X_after_affine = X[["Patient_NO", 'Respiratory cycle']]
         Y_after_affine = Y.copy()
         for p_n in Y["Patient_NO"].unique():
-            if p_n == p_anchor:
+            if (p_n == p_anchor) & (params['affine'] !=  'synthetic'):
                 continue
             anchor_indices = split_train_test[(split_train_test[f'{cv_i}'] == True) & (split_train_test['Patient_NO']==p_anchor)].index.intersection(x_df.index)
             train_indices = split_train_test[(split_train_test[f'{cv_i}'] == True) & (split_train_test['Patient_NO']==p_n)].index.intersection(x_df.index)
             all_indices = split_train_test[split_train_test['Patient_NO'] == p_n].index.intersection(x_df.index)
 
             #model = SimpleAffineTransform()
-            model = SimpleMLPTransform(hidden_layer_sizes=(64,), max_iter=2000)
+            model = SimpleMLPTransform(hidden_layer_sizes=(64,), max_iter=10000)
 
 
             model.fit_transform(
                 X_anchor=x_df.loc[anchor_indices],
-                y_anchor=Y['level'].loc[anchor_indices],
+                y_anchor=Y['level_int'].loc[anchor_indices],
                 X_subject=x_df.loc[train_indices],
-                y_subject=Y['level'].loc[train_indices],
+                y_subject=Y['level_int'].loc[train_indices],
                 affine_method=params['affine']
             )
 
@@ -453,7 +453,7 @@ def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilist
     remove_level_Option=[['Inhalation']]
 
     for experiment_type in experiment_types:
-        if experiment_type == 'mixed':
+        if experiment_type in 'mixed':
             save_data(Patients, min_diff_Option, max_diff_Option, min_length_Option, max_length_Option,
                       remove_level_Option, type=['everyone'], title="")
             split_train_test(type=['everyone'])
@@ -474,7 +474,9 @@ def run_pipeline_processed(experiment_types=['mixed', 'independent','probabilist
             #dr_time= dimensional_reduction_function(params)
             #params['affine'] = 'SMOTE'
             #affine_time_smote= affine_transform_data(params)
-            params['affine'] = 'regular'
+            #params['affine'] = 'regular'
+            #affine_time = affine_transform_data(params)
+            params['affine'] = 'synthetic'
             affine_time = affine_transform_data(params)
             return dr_time,affine_time
 

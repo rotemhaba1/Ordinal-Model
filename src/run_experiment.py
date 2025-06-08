@@ -21,9 +21,13 @@ def save_data(params,n_components_range):
     #save_time(results_times)
 
 
+if __name__ == "__main__":
+    experiment_types = ['mixed'] # ['affine'] ['mixed']
+    #run_pipeline_processed(experiment_types)
+    #run_in_sequence(experiment_types)
+    run_pipeline_validation(experiment_types)
 
-
-
+"""
 if __name__ == "__main__":
     affine_transform_opt=[True,False]
     dimensional_reduction_op = [True, False]
@@ -34,8 +38,6 @@ if __name__ == "__main__":
 
     #save_data(params, n_components_range)
     #run_pipeline_validation(experiment_types)
-
-
 
 
 
@@ -75,6 +77,6 @@ if __name__ == "__main__":
         run_in_sequence(experiment_types)
 
     run_pipeline_validation(experiment_types)
-
+"""
 
 

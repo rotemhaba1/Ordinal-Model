@@ -10,9 +10,10 @@ def run_pipeline_validation(experiment_types=['mixed', 'independent']):
         if experiment_type == "mixed":
             experiments_to_update = find_experiments_to_update(EXPERIMENT_TRACKING_MIXED_PATH,
                                                                EXPERIMENT_SUMMARY_MIXED_PATH, param_ensemble)
-            experiments_valid = evaluate_experiments(experiments_to_update, PREDICT_TRACKING_MIXED_PATH)
-            update_experiments_file(experiments_valid, EXPERIMENT_SUMMARY_MIXED_PATH)
+            experiments_valid,auc_per_fold_df = evaluate_experiments(experiments_to_update, PREDICT_TRACKING_MIXED_PATH)
+            update_experiments_file(experiments_valid,auc_per_fold_df, EXPERIMENT_SUMMARY_MIXED_PATH)
             summary_results_mixed(RESULTS_DIR, EXPERIMENT_SUMMARY_MIXED_PATH)
+            t_test_point(RESULTS_DIR, EXPERIMENT_SUMMARY_MIXED_PATH, on='auc_weighted')
         elif experiment_type == "independent":
             experiments_to_update = find_experiments_to_update(EXPERIMENT_TRACKING_INDEPENDENT_PATH,
                                                                EXPERIMENT_SUMMARY_INDEPENDENT_PATH, param_ensemble)

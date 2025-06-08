@@ -1,11 +1,12 @@
 import pandas as pd
 import os
 from src.utils.setup_logger import evaluation_logger
-from sklearn.metrics import roc_auc_score, mean_squared_error, accuracy_score, f1_score, recall_score
+from sklearn.metrics import roc_auc_score, mean_squared_error, accuracy_score, f1_score, recall_score,cohen_kappa_score
 import numpy as np
 import ast
 from datetime import datetime
-from scipy.stats import ttest_ind, ttest_rel
+from scipy.stats import ttest_ind, ttest_rel,wasserstein_distance
+
 
 def filter_params(row, model_x, combo_x):
     try:
@@ -149,6 +150,36 @@ def metrics_per_class(y_true, y_pred, y_pred_labels, class_list, metrics_scores,
 
     return metrics_scores, num_samples
 
+def ordinal_auc(y_true_labels, y_pred_proba):
+    y_score = np.dot(y_pred_proba, np.arange(y_pred_proba.shape[1]))
+    count, total = 0, 0
+    for i in range(len(y_true_labels)):
+        for j in range(i + 1, len(y_true_labels)):
+            if y_true_labels[i] < y_true_labels[j]:
+                total += 1
+                if y_score[i] < y_score[j]:
+                    count += 1
+            elif y_true_labels[i] > y_true_labels[j]:
+                total += 1
+                if y_score[i] > y_score[j]:
+                    count += 1
+    return count / total if total > 0 else np.nan
+
+
+
+
+def emd_all(y_true, y_pred_proba):
+    emd_scores = []
+    classes = np.arange(y_pred_proba.shape[1])
+    for i, true_class in enumerate(y_true):
+        true_dist = np.zeros_like(classes, dtype=float)
+        true_dist[true_class] = 1.0
+        pred_dist = y_pred_proba[i]
+        emd = wasserstein_distance(classes, classes, true_dist, pred_dist)
+        emd_scores.append(emd)
+    return np.mean(emd_scores)
+
+
 def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=['']):
     results = []
     auc_per_fold_results = []
@@ -193,6 +224,9 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
                 accuracy_scores = []
                 f1_avg_scores, f1_weighted_scores = [], []
                 sensitivity_avg_scores, sensitivity_weighted_scores = [], []
+                ordinal_auc_scores = []
+                emd_scores = []
+                qwk_scores = []
 
                 p_ll={}
                 for cv_fold, group in df.groupby(level="cv_fold"):
@@ -222,6 +256,11 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
                         sensitivity_avg_scores.append(recall_score(y_true_labels, y_pred_labels_, average='macro'))
                         sensitivity_weighted_scores.append(recall_score(y_true_labels, y_pred_labels_, average='weighted'))
 
+                        ordinal_auc_scores.append(ordinal_auc(y_true_labels.values-1, y_pred.values))
+                        emd_scores.append(emd_all(y_true_labels.values-1, y_pred.values))
+                        qwk_scores.append(cohen_kappa_score(y_true_labels.values, y_pred_labels_, weights='quadratic'))
+
+
 
 
 
@@ -229,18 +268,19 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
                     except Exception as e:
                         evaluation_logger.warning(f"Failed to compute metrics for experiment {experiment_id}, cv_fold {cv_fold}: {e}")
 
-                for p_i_test in df["Patient_NO"].unique():
-                    df_p = df[df["Patient_NO"] == p_i_test]
-                    y_true = pd.get_dummies(df_p["level_int"])
-                    column_names = [f"prob_class_{i + 1}" for i in range(3)] if num_classes == 3 else [
-                        'prob_class_1', 'prob_class_3']
-                    y_pred = df_p[column_names]
+                if 'mixed' not in predict_dir:
+                    for p_i_test in df["Patient_NO"].unique():
+                        df_p = df[df["Patient_NO"] == p_i_test]
+                        y_true = pd.get_dummies(df_p["level_int"])
+                        column_names = [f"prob_class_{i + 1}" for i in range(3)] if num_classes == 3 else [
+                            'prob_class_1', 'prob_class_3']
+                        y_pred = df_p[column_names]
 
-                    p_ll[f"Patient_NO_{p_i_test}_auc_avg"] = roc_auc_score(y_true, y_pred, multi_class="ovr")
-                    p_ll[f"Patient_NO_{p_i_test}_auc_weighted"] = roc_auc_score(y_true, y_pred,
-                                                                                          average='weighted',
-                                                                                          multi_class="ovr")
-                    p_ll[f"Patient_NO_{p_i_test}_samples"] =df_p['level_int'].value_counts().to_dict()
+                        p_ll[f"Patient_NO_{p_i_test}_auc_avg"] = roc_auc_score(y_true, y_pred, multi_class="ovr")
+                        p_ll[f"Patient_NO_{p_i_test}_auc_weighted"] = roc_auc_score(y_true, y_pred,
+                                                                                              average='weighted',
+                                                                                              multi_class="ovr")
+                        p_ll[f"Patient_NO_{p_i_test}_samples"] =df_p['level_int'].value_counts().to_dict()
 
                 auc_per_fold_results.append({
                     'experiment_id': experiment_id,
@@ -271,7 +311,10 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
                         "f1_avg": np.mean(f1_avg_scores),
                         "f1_weighted_avg": np.mean(f1_weighted_scores),
                         "sensitivity_avg": np.mean(sensitivity_avg_scores),
-                        "sensitivity_weighted_avg": np.mean(sensitivity_weighted_scores),}
+                        "sensitivity_weighted_avg": np.mean(sensitivity_weighted_scores),
+                        "auc_ordinal_avg": np.mean(ordinal_auc_scores),
+                    "emd_avg": np.mean(emd_scores ),
+                    "qwk_avg": np.mean(qwk_scores ),}
 
                     ll = add_stats(auc_avg_scores, "auc_avg", ll)
                     ll = add_stats(auc_weighted_scores, "auc_weighted", ll)
@@ -281,6 +324,9 @@ def evaluate_experiments(experiments_to_update, predict_dir,Patients_level_3=[''
                     ll = add_stats(f1_weighted_scores, "f1_weighted", ll)
                     ll = add_stats(sensitivity_avg_scores, "sensitivity_avg", ll)
                     ll = add_stats(sensitivity_weighted_scores, "sensitivity_weighted", ll)
+                    ll = add_stats(ordinal_auc_scores, "auc_ordinal", ll)
+                    ll = add_stats(emd_scores, "emd_avg", ll)
+                    ll = add_stats(qwk_scores, "qwk_avg", ll)
 
                     for i in class_list:
                         ll[f'auc_class_{i}']=np.mean(metrics_scores["auc"][i]) if metrics_scores["auc"][i] else None
@@ -555,14 +601,25 @@ def update_experiments_file_independent(experiments_valid,summary_path):
 
 def summary_results_mixed(result_path,summary_path):
     summary_df=pd.read_excel(summary_path)
-    selected_columns = ['params','model', 'auc_weighted_avg', 'mse_avg', 'accuracy_weighted_avg',
-                        'f1_weighted_avg', 'sensitivity_weighted_avg','auc_class_3','auc_class_2','auc_class_1']
+    selected_columns = ['index','params','model'
+    , 'auc_weighted_avg', 'auc_weighted_std', 'auc_weighted_cv_percent'
+    , 'auc_ordinal_avg', 'auc_ordinal_std', 'auc_ordinal_cv_percent'
+    , 'emd_avg', 'emd_avg_std', 'emd_avg_cv_percent'
+    , 'qwk_avg', 'qwk_avg_std', 'qwk_avg_cv_percent'
+    , 'auc_avg', 'auc_avg_std', 'auc_avg_cv_percent'
+    , 'mse_avg', 'mse_std', 'mse_cv_percent'
+    , 'accuracy_avg', 'accuracy_avg_std', 'accuracy_avg_cv_percent'
+    , 'f1_weighted_avg', 'f1_weighted_std', 'f1_weighted_cv_percent'
+    , 'sensitivity_weighted_avg', 'sensitivity_weighted_std', 'sensitivity_weighted_cv_percent'
+    , 'auc_class_1', 'auc_class_2', 'auc_class_3'
+    , 'num_samples_class_1', 'num_samples_class_2', 'num_samples_class_3'
+    , 'total_time']
     filtered_df = summary_df[selected_columns]
     best_models_df = filtered_df.loc[filtered_df.groupby('model')['auc_weighted_avg'].idxmax()]
     model_order = ['DecisionTrees', 'DecisionTrees_Ordinal', 'AdaBoost', 'AdaBoost_Ordinal',
                    'RandomForest', 'RandomForest_Ordinal', 'catboost', 'XGBoost', 'ensemble']
     best_models_df = best_models_df.set_index('model').loc[model_order].reset_index()
-    best_models_df.to_excel(f'{result_path}/mix_results.xlsx', index=False)
+    best_models_df.to_excel(f'{result_path}/mixed_results.xlsx', index=False)
 
 def compute_total_time(row):
     if row['type'] == 'None':
@@ -604,8 +661,8 @@ def summary_results_affine(result_path,summary_path):
     )
 
     summary_df['type'] = np.where(
-        summary_df['affine'] == 'SMOTE',
-        summary_df['type'] + '_SMOTE',
+        summary_df['affine'] != 'regular',
+        summary_df['type'] + '_' + summary_df['affine'],
         summary_df['type']
     )
 
@@ -614,6 +671,9 @@ def summary_results_affine(result_path,summary_path):
         ,'p_anchor'
                         ,'affine'
         , 'auc_weighted_avg','auc_weighted_std','auc_weighted_cv_percent'
+        , 'auc_ordinal_avg', 'auc_ordinal_std', 'auc_ordinal_cv_percent'
+        , 'emd_avg', 'emd_avg_std', 'emd_avg_cv_percent'
+        , 'qwk_avg', 'qwk_avg_std', 'qwk_avg_cv_percent'
         , 'auc_avg', 'auc_avg_std', 'auc_avg_cv_percent'
         , 'mse_avg','mse_std','mse_cv_percent'
         , 'accuracy_avg','accuracy_avg_std','accuracy_avg_cv_percent'
@@ -707,11 +767,12 @@ def knee_point(result_path):
     print("Elbow points saved to 'elbow_points' sheet in affine_results.xlsx")
 
 def  t_test_point(result_path,summary_path,on='auc_avg',number_dimensional=7):
+
     summary_df = pd.read_excel(summary_path,sheet_name='auc_per_fold_df')
     auc_columns = [f'{on}_cv{i}' for i in range(1, 6)]
     summary_df = summary_df[['experiment_id']+auc_columns]
-
-    result_df = pd.read_excel(f'{result_path}/affine_results.xlsx')
+    folder_name = os.path.basename(os.path.dirname(summary_path))
+    result_df = pd.read_excel(f'{result_path}/{folder_name}_results.xlsx')
     merged_df = result_df.merge(summary_df, left_on="index", right_on="experiment_id", how="left")
     merged_df['dimensional_reduction'] = merged_df['dimensional_reduction'].str.replace('all_', '', regex=False)
 
@@ -753,7 +814,7 @@ def  t_test_point(result_path,summary_path,on='auc_avg',number_dimensional=7):
         pval_cols = [col for col in t_test_df.columns if 't_test_pval' in col]
         t_test_df = t_test_df[first_cols + pval_cols ]
 
-        excel_file = os.path.join(result_path, "affine_results.xlsx")
+        excel_file = os.path.join(result_path, folder_name+"_results.xlsx")
 
         with pd.ExcelWriter(excel_file, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
             t_test_df.to_excel(writer, sheet_name=f't_test_{on}', index=False)
